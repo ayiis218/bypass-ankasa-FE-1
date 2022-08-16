@@ -1,0 +1,254 @@
+.section {
+   font-family: 'Poppins', sans-serif;
+   font-weight: bold;
+   height: 100vh;
+   width: 385px;
+   background-color: var(--mainColor);
+}
+.header {
+   background-color: var(--color-4);
+   width: 375px;
+   height: 176px;
+   border-radius: 0px 0px 30px 30px;
+   display: flex;
+}
+.container {
+   position: inherit;
+   top: 100px;
+   width: 400px;
+   height: 100%;
+   background-color: var(--mainColor);
+   border-radius: 12px;
+   padding: 30px;
+   z-index: -2px;
+}
+.container p:nth-child(2) {
+   font-size: 20px;
+   margin-top: -10px;
+}
+.title {
+   color: var(--mainColor);
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 600;
+   font-size: 24px;
+   margin-left: 18px;
+}
+.content {
+   position: absolute;
+   background-color: var(--mainColor);
+   top: 120px;
+   box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
+   border-radius: 12px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.content p:nth-child(1),
+.content p:nth-child(3) {
+   font-size: 15px !important;
+   font-weight: 100;
+}
+.box {
+   height: 110px;
+   padding: 6px 15px;
+}
+.box select {
+   font-weight: bold;
+   font-size: x-large;
+}
+.dest {
+   color: var(--color-5);
+   font-family: 'Lato';
+   font-style: normal;
+}
+.box:nth-child(3) {
+   text-align: right;
+}
+.city {
+   width: 100px;
+   height: 30px;
+   margin-top: -10px;
+   margin-bottom: 10px;
+}
+.city button {
+   font-size: 20px !important;
+   padding: 0;
+   border: none;
+   background-color: transparent;
+   color: rgb(63, 63, 63);
+}
+.city button:hover {
+   color: #2395ff;
+}
+.city button:active {
+   background-color: transparent !important;
+   color: #2395ff !important;
+}
+.type {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 25px;
+}
+.date {
+   border: 0 solid var(--color-3);
+   border-radius: 7px;
+   margin-top: 5px;
+}
+.select {
+   display: flex;
+   justify-content: space-between;
+   margin-top: -8px;
+   width: 100%;
+   gap: 20px;
+}
+.select select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   background: transparent;
+   background-image: url('/public/icons/iconright.svg');
+   background-repeat: no-repeat;
+   background-position-x: 90%;
+   background-position-y: 20px;
+   border: 1px solid var(--color-3);
+   border-radius: 7px;
+   margin-right: 2rem;
+   padding: 1rem;
+   color: var(--color-5);
+   width: 400px;
+   margin-right: 0 !important;
+}
+.mode {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+.mode li {
+   margin: 0 5px 0 0;
+   width: 150px;
+   height: 50px;
+   position: relative;
+}
+.mode label,
+.mode input {
+   display: block;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   border: 0;
+   border-radius: 7px;
+   background-color: var(--color-2);
+   background-repeat: no-repeat;
+}
+.mode .one-way label {
+   padding-left: 20px;
+}
+.mode .round-trip label {
+   padding-left: 25px;
+}
+.mode .one-way label,
+.mode .one-way input {
+   background-position: 30px 15px;
+   background-image: url('/public/icons/one-way-black.svg');
+}
+.mode .one-way label:hover,
+.mode .one-way input:hover {
+   background-color: var(--text-blue);
+   color: var(--text-white);
+   background-repeat: no-repeat;
+   background-position: 30px 15px;
+   background-image: url('/public/icons/one-way-white.svg');
+}
+.mode .round-trip label,
+.mode .round-trip input {
+   background-position: 25px 15px;
+   background-image: url('/public/icons/round-trip-black.svg');
+}
+.smode .round-trip label:hover,
+.smode .round-trip input:hover {
+   background-color: var(--text-blue);
+   color: var(--text-white);
+   background-repeat: no-repeat;
+   background-position: 25px 15px;
+   background-image: url('/public/icons/round-trip-white.svg');
+}
+.mode label {
+   text-align: center;
+   line-height: 35px;
+}
+.mode input[type='radio'] {
+   opacity: 0.01;
+   z-index: 100;
+}
+.mode input[type='radio']:checked + label,
+.Checked + label {
+   background: var(--color-4);
+   color: var(--color-1);
+}
+.mode .one-way input[type='radio']:checked + label,
+.Checked + label {
+   background-repeat: no-repeat;
+   background-position: 30px 15px;
+   background-image: url('/public/icons/one-way-white.svg');
+}
+.mode .round-trip input[type='radio']:checked + label,
+.Checked + label {
+   background-repeat: no-repeat;
+   background-position: 25px 15px;
+   background-image: url('/public/icons/round-trip-white.svg');
+}
+.mode label {
+   padding: 5px;
+   border: 1px solid var(--color-2);
+   cursor: pointer;
+   z-index: 90;
+}
+.mode label:hover {
+   background: var(--color-2);
+}
+.radio {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+}
+.radio label {
+   display: flex;
+   margin: 3px;
+   margin-left: 10px;
+
+   font-family: 'Lato';
+   font-style: normal;
+}
+.radio input[type='radio'] {
+   display: none;
+}
+.radio input[type='radio'] + label:before {
+   content: '';
+   display: inline-block;
+   width: 25px;
+   height: 25px;
+   padding: 6px;
+   background-clip: content-box;
+   border: 2px solid var(--color-4);
+   background-color: none;
+   border-radius: 50%;
+}
+.radio input[type='radio']:checked + label:before {
+   background-color: var(--color-4);
+}
+.button {
+   width: 100%;
+   padding: 15px;
+   background-color: #2395ff;
+   color: #fff;
+   font-weight: 700;
+   text-transform: uppercase;
+   border: 0;
+   border-radius: 8px;
+}
+.button:hover {
+   box-shadow: 0px 10px 10px rgba(47, 153, 253, 0.3);
+}
