@@ -3,6 +3,9 @@ import style from "../styles/Home.module.css";
 import Footer from "../component/footer";
 import { FiSearch } from "react-icons/fi";
 import HomeHeader from "../component/homeHeader";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import TrendingDestinations from "../component/trendingDestinations";
 
 const Explore = () => {
   return (
@@ -23,6 +26,12 @@ const Explore = () => {
                   aria-describedby="inputGroup-sizing-lg"
                   placeholder="Where you want to go?"
                 />
+              </div>
+            </div>
+            <TrendingDestinations />
+            <div className="row mt-4">
+              <div className="col-7">
+                <p className={style.topDestinations}>Top 10 destinations</p>
               </div>
             </div>
           </div>

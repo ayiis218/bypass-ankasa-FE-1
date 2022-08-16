@@ -13,9 +13,37 @@
 }
 
 .message {
-  margin-right: 7px;
+  margin-right: 20px;
 }
 /* Header End */
+
+/* Trending Destinations */
+.trendingTitle {
+  font-weight: bold;
+}
+
+.viewAll {
+  color: #2395ff;
+}
+
+.destinationsCarousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px !important;
+  cursor: pointer;
+  min-height: 190px;
+  width: 90% !important;
+}
+
+.destinationsImage {
+  object-fit: cover !important;
+}
+/* Trending Destinations End */
+
+/* top 10 Destinations */
+.topDestinations {
+  font-weight: bold;
+}
 
 /* Footer */
 .footer {
