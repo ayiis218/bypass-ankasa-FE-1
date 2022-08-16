@@ -1,9 +1,21 @@
 .bodyWrapper {
   min-height: 90vh;
-  background-color: red;
-  padding-left: 0px;
-  padding-right: 0px;
 }
+
+/* Header */
+.notification div {
+  gap: 5px;
+  display: inline;
+}
+
+.notification svg {
+  cursor: pointer;
+}
+
+.message {
+  margin-right: 7px;
+}
+/* Header End */
 
 /* Footer */
 .footer {
