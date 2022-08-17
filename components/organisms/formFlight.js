@@ -2,13 +2,14 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import back from '../../public/icons/btnback.svg';
 import arrow from '../../public/icons/arrow.svg';
 import go from '../../public/icons/white-arrow.svg';
 import full from '../../public/icons/fullScreen.svg';
+
 import style from './style/flight.module.css';
-import { useRouter } from 'next/router';
 
 const formFlight = () => {
    const router = useRouter();
