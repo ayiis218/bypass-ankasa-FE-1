@@ -10,7 +10,8 @@
    --color-3: #dddddd;
    --color-4: #2395ff;
    --color-5: #000000;
-   --color-6: #fcf4d9;
+   --color-6: #6b6b6b;
+   --color-7: #f6fbff;
    --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.1);
    --shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -26,8 +27,6 @@
 html,
 body {
    background-color: var(--color-2);
-   padding: 0;
-   margin: 0;
    display: flex;
    justify-content: center;
    align-items: center;

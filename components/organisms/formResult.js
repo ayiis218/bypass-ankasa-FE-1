@@ -18,8 +18,8 @@ const SearchResult = () => {
       <div className={style.section}>
          <div className="container">
             <div className="row">
-               <div className={`${style.header}`}>
-                  <div className="row mt-3 m-1">
+               <div className={style.header}>
+                  <div className="row mt-3 m-2">
                      <div className="col-6 d-flex justify-content-start">
                         <Image src={back} alt="Back" />
                      </div>
@@ -35,7 +35,7 @@ const SearchResult = () => {
                   <div className="row mt-3 m-1">
                      <div className={style.main}>
                         <p className="ms-1 me-auto">From</p>
-                        <p className="me-2 ms-auto">To</p>
+                        <p className="me-3 ms-auto">To</p>
                      </div>
                      <div className={style.select}>
                         <div className="col-4">

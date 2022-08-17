@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
@@ -8,7 +9,7 @@ import back from '../../public/icons/btnback.svg';
 import arrow from '../../public/icons/arrow.svg';
 import go from '../../public/icons/white-arrow.svg';
 import full from '../../public/icons/fullScreen.svg';
-
+import Default from '../../public/img/bali.png';
 import style from './style/flight.module.css';
 
 const formFlight = () => {
@@ -19,13 +20,30 @@ const formFlight = () => {
       <div className={style.section}>
          <div className="container">
             <div className="row">
-               <div className={`w-100 ${style.header}`}>
-                  <div className="row w-100">
-                     <div className="col-6 d-flex justify-content-start">
-                        <Image src={back} alt="Back" />
-                     </div>
-                     <div className="col-6 d-flex justify-content-end">
-                        <Image src={full} alt="full" />
+               <div className={style.header}>
+                  <div className="row">
+                     <Image
+                        className={style.img}
+                        src={Default}
+                        alt="destinasi"
+                        height={220}
+                        width={490}
+                     ></Image>
+                     <div className={`row ms-2 ${style.icon}`}>
+                        <div className="col-6 mt-3">
+                           <Image
+                              className={style.back}
+                              src={back}
+                              alt="Back"
+                           />
+                        </div>
+                        <div className="col-6 mt-3 d-flex justify-content-end">
+                           <Image
+                              className={style.full}
+                              src={full}
+                              alt="full"
+                           />
+                        </div>
                      </div>
                      <div className={style.title}>
                         <h3>Destinations</h3>
@@ -36,7 +54,6 @@ const formFlight = () => {
                   <div className={style.content}>
                      <div className={style.box}>
                         <div className="text-secondary">From</div>
-
                         <select
                            className="font-weight-bold form-control w-auto"
                            name="deptCity"
@@ -141,16 +158,22 @@ const formFlight = () => {
                      </div>
                   </div>
                   <div>
-                     <div className="search-person mt-4 text-secondary">
+                     <div className="search-person mt-3 text-secondary">
                         Which class do you want?
                      </div>
                      <div className={style.radio}>
-                        <input type="radio" name="radio" id="radio1" />
-                        <label htmlFor="radio1"> Economy</label>
-                        <input type="radio" name="radio" id="radio2" />
-                        <label htmlFor="radio2"> Business</label>
-                        <input type="radio" name="radio" id="radio3" />
-                        <label htmlFor="radio3"> First Class</label>
+                        <div>
+                           <input type="radio" name="radio" id="radio1" />
+                           <label htmlFor="radio1"> Economy</label>
+                        </div>
+                        <div>
+                           <input type="radio" name="radio" id="radio2" />
+                           <label htmlFor="radio2"> Business</label>
+                        </div>
+                        <div>
+                           <input type="radio" name="radio" id="radio3" />
+                           <label htmlFor="radio3"> First Class</label>
+                        </div>
                      </div>
                   </div>
                   <button
