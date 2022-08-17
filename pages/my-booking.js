@@ -3,14 +3,12 @@ import Footer from "../component/footer";
 import Header from "../component/header";
 import style from "../styles/MyBooking.module.css";
 import { RiFlightTakeoffLine } from "react-icons/ri";
+import StatusTicket from "../component/statusTicket";
 
 const MyBooking = () => {
   return (
     <>
-      <div
-        id="myBooking"
-        className={`row justify-content-center ${style.bodyWrapper}`}
-      >
+      <div className={`row justify-content-center ${style.bodyWrapper}`}>
         <div className={`col-md-4 p-0 ${style.myBookingWrapper}`}>
           <div className={`container ${style.fixHeight}`}>
             <Header title={"My Booking"} />
@@ -33,12 +31,7 @@ const MyBooking = () => {
                         <p className={style.status}>Status</p>
                       </div>
                       <div className="col-8 text-end">
-                        <button
-                          className="btn btn-warning shadow-none"
-                          type="button"
-                        >
-                          Waiting for payment
-                        </button>
+                        <StatusTicket status={"waiting"} />
                       </div>
                     </div>
                   </div>
@@ -61,12 +54,7 @@ const MyBooking = () => {
                       <p className={style.status}>Status</p>
                     </div>
                     <div className="col-8 text-end">
-                      <button
-                        className="btn btn-success shadow-none"
-                        type="button"
-                      >
-                        Ticket issued
-                      </button>
+                      <StatusTicket status={"success"} />
                     </div>
                   </div>
                 </div>
@@ -88,12 +76,7 @@ const MyBooking = () => {
                       <p className={style.status}>Status</p>
                     </div>
                     <div className="col-8 text-end">
-                      <button
-                        className="btn btn-danger shadow-none"
-                        type="button"
-                      >
-                        Failed
-                      </button>
+                      <StatusTicket status={"failed"} />
                     </div>
                   </div>
                 </div>
