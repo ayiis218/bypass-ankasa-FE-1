@@ -42,6 +42,27 @@ a {
   padding-top: 0px;
 }
 
+#myBooking .btn-warning {
+  background-color: #ff7f23;
+  color: white;
+  --bs-btn-border-color: "none";
+  cursor: default;
+}
+
+#myBooking .btn-success {
+  background-color: #4fcf4d;
+  color: white;
+  --bs-btn-border-color: "none";
+  cursor: default;
+}
+
+#myBooking .btn-danger {
+  background-color: #bb2d3a;
+  color: white;
+  --bs-btn-border-color: "none";
+  cursor: default;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
