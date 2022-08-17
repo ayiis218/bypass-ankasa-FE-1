@@ -57,73 +57,37 @@ const TopTenDestinations = () => {
           <p className={style.topDestinations}>Top 10 destinations</p>
         </div>
       </div>
-      <div className="row mt-2 mb-4">
+      <div id="topTenDestinations" className="row mt-2 mb-4">
         <Slider {...settings}>
-          <div className={`${style.topTenCarousel}`}>
-            <div className="row">
-              <Image
-                className={style.topTenImage}
-                src={exampleImgDestination}
-                layout="fill"
-              />
+          <div className={`card ${style.cardDestinations} text-center`}>
+            <Image src={exampleImgDestination} height={70} width={70} />
+            <div className="card-body">
+              <p className="card-text text-center">PARIS</p>
             </div>
           </div>
-
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
+          <div className={`card ${style.cardDestinations} text-center`}>
+            <Image src={exampleImgDestination} height={70} width={70} />
+            <div className="card-body">
+              <p className="card-text text-center">PARIS</p>
+            </div>
           </div>
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
+          <div className={`card ${style.cardDestinations} text-center`}>
+            <Image src={exampleImgDestination} height={70} width={70} />
+            <div className="card-body">
+              <p className="card-text text-center">PARIS</p>
+            </div>
           </div>
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
+          <div className={`card ${style.cardDestinations} text-center`}>
+            <Image src={exampleImgDestination} height={70} width={70} />
+            <div className="card-body">
+              <p className="card-text text-center">PARIS</p>
+            </div>
           </div>
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
-          </div>
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
-          </div>
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
-          </div>
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
-          </div>
-          <div className={`${style.topTenCarousel}`}>
-            <Image
-              className={style.topTenImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
+          <div className={`card ${style.cardDestinations} text-center`}>
+            <Image src={exampleImgDestination} height={70} width={70} />
+            <div className="card-body">
+              <p className="card-text text-center">PARIS</p>
+            </div>
           </div>
         </Slider>
       </div>

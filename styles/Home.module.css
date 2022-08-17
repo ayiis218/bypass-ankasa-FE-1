@@ -3,7 +3,7 @@
 }
 
 .exploreWrapper {
-  background-color: white;
+  background-color: #f8f8f8;
 }
 
 /* Header */
@@ -85,25 +85,11 @@
 /* Trending Destinations End */
 
 /* top 10 Destinations */
-.topDestinations {
-  font-weight: bold;
-}
-
-.topTenCarousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 50% !important;
-  cursor: pointer;
-  height: 80px;
-  width: 80px !important;
-  border: 4px solid #1c9bf9;
-}
-
-.topTenImage {
+.cardDestinations img {
+  border-radius: 50%;
   object-fit: cover;
-  height: 51px !important;
-  width: 51px !important;
-  border: 5px solid white;
+  padding: 3px !important;
+  border: 3px solid #2495ff !important;
 }
 
 /* Footer */
