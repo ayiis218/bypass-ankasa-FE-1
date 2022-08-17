@@ -68,6 +68,14 @@ const TrendingDestinations = () => {
               src={exampleImgDestination}
               layout="fill"
             />
+            <div className={style.totalAirlines}>
+              <span>15 Airlines</span>
+            </div>
+            <div className={style.destinationTitle}>
+              <span className={style.destinationCity}>Tokyo,</span>
+              <br />
+              <span>Japan</span>
+            </div>
           </div>
           <div className={`card ${style.destinationsCarousel}`}>
             <Image
@@ -75,6 +83,14 @@ const TrendingDestinations = () => {
               src={exampleImgDestination}
               layout="fill"
             />
+            <div className={style.totalAirlines}>
+              <span>15 Airlines</span>
+            </div>
+            <div className={style.destinationTitle}>
+              <span className={style.destinationCity}>Tokyo,</span>
+              <br />
+              <span>Japan</span>
+            </div>
           </div>
           <div className={`card ${style.destinationsCarousel}`}>
             <Image
@@ -82,13 +98,14 @@ const TrendingDestinations = () => {
               src={exampleImgDestination}
               layout="fill"
             />
-          </div>
-          <div className={`card ${style.destinationsCarousel}`}>
-            <Image
-              className={style.destinationsImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
+            <div className={style.totalAirlines}>
+              <span>15 Airlines</span>
+            </div>
+            <div className={style.destinationTitle}>
+              <span className={style.destinationCity}>Tokyo,</span>
+              <br />
+              <span>Japan</span>
+            </div>
           </div>
         </Slider>
       </div>
