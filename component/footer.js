@@ -24,7 +24,9 @@ const Footer = () => {
         <small>My Booking</small>
       </div>
       <div className={`col-4 text-center ${style.goFlight}`}>
-        <RiCompass3Fill size={55} color="white" />
+        <Link href="/" passHref>
+          <RiCompass3Fill size={55} color="white" />
+        </Link>
       </div>
       <div className="col-4 text-center">
         <Link href="/profile" passHref>
