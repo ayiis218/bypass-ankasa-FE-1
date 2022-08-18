@@ -4,6 +4,7 @@ import { TbCalendarTime } from "react-icons/tb";
 import { RiCompass3Fill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Footer = () => {
   const router = useRouter();
@@ -13,10 +14,12 @@ const Footer = () => {
       className={`row justify-content-center align-teims-center ${style.footer}`}
     >
       <div className="col-4 text-center">
-        <TbCalendarTime
-          size={27}
-          color={router.pathname == "/" ? "#2495FF" : "#979797"}
-        />
+        <Link href="/my-booking" passHref>
+          <TbCalendarTime
+            size={27}
+            color={router.pathname == "/my-booking" ? "#2495FF" : "#979797"}
+          />
+        </Link>
         <br />
         <small>My Booking</small>
       </div>
@@ -24,10 +27,12 @@ const Footer = () => {
         <RiCompass3Fill size={55} color="white" />
       </div>
       <div className="col-4 text-center">
-        <CgProfile
-          size={28}
-          color={router.pathname == "/profile" ? "#2495FF" : "#979797"}
-        />
+        <Link href="/profile" passHref>
+          <CgProfile
+            size={28}
+            color={router.pathname == "/profile" ? "#2495FF" : "#979797"}
+          />
+        </Link>
         <br />
         <small>Profile</small>
       </div>
