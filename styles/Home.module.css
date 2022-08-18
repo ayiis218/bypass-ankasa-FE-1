@@ -3,7 +3,11 @@
 }
 
 .exploreWrapper {
-  background-color: #f8f8f8;
+  background-color: #fbfbfb;
+}
+
+.fixHeight {
+  height: 100vh;
 }
 
 /* Header */
