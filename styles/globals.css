@@ -1,5 +1,6 @@
 html,
 body {
+  overflow: hidden;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -15,6 +16,41 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea {
+  outline: none;
+  box-shadow: none;
+  border: 0px;
+  border-radius: 0px;
+  border-bottom: 2px solid #d2c2ff;
+}
+
+input[type="checkbox"],
+textarea {
+  border: 1px solid #2395ff;
+}
+
+i {
+  position: absolute;
+  border: 1px;
+  top: 15%;
+  right: 2%;
+  color: #2395ff;
+}
+
+i:hover {
+  color: #2395ff;
+  cursor: pointer;
+}
+
+button {
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
 
 /* Search Input */
 #inputSearchHome .input-group-text {
@@ -71,4 +107,5 @@ a {
     color: white;
     background: black;
   }
+
 }
