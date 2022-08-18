@@ -6,6 +6,10 @@
   background-color: #f8f8f8;
 }
 
+.fixHeight {
+  height: 100vh;
+}
+
 /* Header */
 .notification div {
   gap: 5px;
