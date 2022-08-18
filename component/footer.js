@@ -21,7 +21,13 @@ const Footer = () => {
           />
         </Link>
         <br />
-        <small>My Booking</small>
+        <small
+          style={{
+            color: router.pathname == "/my-booking" ? "#2495FF" : "#979797",
+          }}
+        >
+          My Booking
+        </small>
       </div>
       <div className={`col-4 text-center ${style.goFlight}`}>
         <Link href="/" passHref>
@@ -36,7 +42,13 @@ const Footer = () => {
           />
         </Link>
         <br />
-        <small>Profile</small>
+        <small
+          style={{
+            color: router.pathname == "/profile" ? "#2495FF" : "#979797",
+          }}
+        >
+          Profile
+        </small>
       </div>
     </div>
   );
