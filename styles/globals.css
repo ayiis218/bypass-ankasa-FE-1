@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -13,6 +14,88 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea {
+  outline: none;
+  box-shadow: none;
+  border: 0px;
+  border-radius: 0px;
+  border-bottom: 2px solid #d2c2ff;
+}
+
+input[type="checkbox"],
+textarea {
+  border: 1px solid #2395ff;
+}
+
+i {
+  position: absolute;
+  border: 1px;
+  top: 15%;
+  right: 2%;
+  color: #2395ff;
+}
+
+i:hover {
+  color: #2395ff;
+  cursor: pointer;
+}
+
+/* button {
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+} */
+
+/* Search Input */
+#inputSearchHome .input-group-text {
+  border: none;
+  background-color: #e3e2e2;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  height: 60px;
+}
+
+#inputSearchHome .form-control {
+  border: none;
+  background-color: #e3e2e2;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: none;
+}
+
+#topTenDestinations .card {
+  --bs-card-border-color: "none";
+  --bs-card-bg: "none";
+}
+
+#topTenDestinations .card-body {
+  padding-top: 0px;
+}
+
+#myBooking .btn-warning {
+  background-color: #ff7f23;
+  color: white;
+  --bs-btn-border-color: "none";
+  cursor: default;
+}
+
+#myBooking .btn-success {
+  background-color: #4fcf4d;
+  color: white;
+  --bs-btn-border-color: "none";
+  cursor: default;
+}
+
+#myBooking .btn-danger {
+  background-color: #bb2d3a;
+  color: white;
+  --bs-btn-border-color: "none";
+  cursor: default;
 }
 
 @media (prefers-color-scheme: dark) {

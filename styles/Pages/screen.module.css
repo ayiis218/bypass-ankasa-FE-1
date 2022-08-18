@@ -1,0 +1,18 @@
+section.main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #2395ff;
+  height: 100vh;
+}
+
+div.main {
+  background-color: #2395ff;
+  margin-top: -350px;
+}
+
+h3.head {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}

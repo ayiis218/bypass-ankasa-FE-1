@@ -1,0 +1,72 @@
+section.main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 80vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+
+div.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+h3.head {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+p.description {
+  text-align: center;
+}
+
+div.button {
+  display: grid;
+  margin-top: 20px;
+}
+
+button.signIn {
+  border: 1px solid #2395ff;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  color: #2395ff;
+}
+
+button.signUp {
+  font: bold;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  background-color: #2395ff;
+  color: white;
+}
+
+a.signUp {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.signIn {
+  color: #2395ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.signIn:hover {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
