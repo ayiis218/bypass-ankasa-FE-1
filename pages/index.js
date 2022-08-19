@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../styles/Home.module.css";
 import { FiSearch } from "react-icons/fi";
 import "slick-carousel/slick/slick.css";
@@ -8,7 +8,10 @@ import Header from "../components/organisms/header";
 import TrendingDestinations from "../components/organisms/trendingDestinations";
 import TopTenDestinations from "../components/organisms/topTenDestinations";
 
-const Explore = () => {
+const Explore = (props) => {
+  const [trendingDest] = useState(props?.trendingDest?.data);
+  const [topTenDest] = useState(props?.topTenDest?.data);
+
   return (
     <>
       <div className={`row pt-4 justify-content-center ${style.bodyWrapper}`}>
@@ -31,9 +34,9 @@ const Explore = () => {
                 </div>
               </div>
               <div className="py-4">
-                <TrendingDestinations />
+                <TrendingDestinations data={trendingDest} />
               </div>
-              <TopTenDestinations />
+              <TopTenDestinations data={topTenDest} />
             </div>
           </div>
           <Footer />
@@ -42,5 +45,21 @@ const Explore = () => {
     </>
   );
 };
+
+export async function getServerSideProps(context) {
+  const [trendingDestRes, topTenDestRes] = await Promise.all([
+    fetch("https://bypass-ankasa-backend.herokuapp.com/trending"),
+    fetch("https://bypass-ankasa-backend.herokuapp.com/trending/destination"),
+  ]);
+
+  const [trendingDest, topTenDest] = await Promise.all([
+    trendingDestRes.json(),
+    topTenDestRes.json(),
+  ]);
+
+  return {
+    props: { trendingDest, topTenDest },
+  };
+}
 
 export default Explore;
