@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../styles/Home.module.css";
+import style from "../../styles/Home.module.css";
 import { FiMail } from "react-icons/fi";
 import { VscBell } from "react-icons/vsc";
 

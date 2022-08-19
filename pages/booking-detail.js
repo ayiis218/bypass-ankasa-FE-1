@@ -5,8 +5,8 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { RiFlightTakeoffFill } from "react-icons/ri";
 import logoAirline from "../public/images/garuda-logo.png";
 import Image from "next/image";
-import StatusTicket from "../component/statusTicket";
-import QrCodeGenerator from "../component/qrCodeGenerator";
+import StatusTicket from "../components/organisms/statusTicket";
+import QrCodeGenerator from "../components/organisms/qrCodeGenerator";
 import { useRouter } from "next/router";
 
 const BookingDetail = () => {

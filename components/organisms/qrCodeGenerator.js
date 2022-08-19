@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import QRCode from "qrcode";
-import Image from "next/image";
 
 const QrCodeGenerator = ({ text }) => {
   const [src, setSrc] = useState("");

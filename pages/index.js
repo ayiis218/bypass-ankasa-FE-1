@@ -1,12 +1,12 @@
 import React from "react";
 import style from "../styles/Home.module.css";
-import Footer from "../component/footer";
 import { FiSearch } from "react-icons/fi";
-import Header from "../component/header";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import TrendingDestinations from "../component/trendingDestinations";
-import TopTenDestinations from "../component/topTenDestinations";
+import Footer from "../components/organisms/footer";
+import Header from "../components/organisms/header";
+import TrendingDestinations from "../components/organisms/trendingDestinations";
+import TopTenDestinations from "../components/organisms/topTenDestinations";
 
 const Explore = () => {
   return (
