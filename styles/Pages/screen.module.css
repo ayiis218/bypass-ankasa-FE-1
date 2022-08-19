@@ -1,14 +1,13 @@
-section.main {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  background-color: #2395ff;
-  height: 100vh;
+.body {
+  padding: 0;
 }
 
 div.main {
+  display: grid;
+  align-content: center;
+  align-items: center;
   background-color: #2395ff;
-  margin-top: -350px;
+  height: 100vh;
 }
 
 h3.head {

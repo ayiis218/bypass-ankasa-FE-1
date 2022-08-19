@@ -19,7 +19,7 @@ const Register = () => {
 
   return (
     <>
-      <section className={loginStyle.main}>
+      <section id="styleButton" className={loginStyle.main}>
         <Container className={loginStyle.header}>
           <Link href="/">
             <FaAngleLeft className={loginStyle.back} size={30} />
@@ -31,13 +31,15 @@ const Register = () => {
         <Image src={Blue} height={250} width={250} />
         <div>
           <h3 className={loginStyle.head}>Register</h3>
-          <Form>
+          <Form id="formInput">
             <Form.Group className={loginStyle.formControl}>
               <Form.Control type="text" placeholder="Full Name" size="lg" />
             </Form.Group>
             <Form.Group className={loginStyle.formControl}>
               <Form.Control type="email" placeholder="Email" size="lg" />
             </Form.Group>
+            <InputGroup id="buttonEye" className={loginStyle.formControl}>
+              <Form.Control type={passwordShown ? "text" : "password"} placeholder="Password" size="lg" />
             <InputGroup className={loginStyle.formControl}>
               <Form.Control
                 type={passwordShown ? "text" : "password"}
@@ -51,7 +53,7 @@ const Register = () => {
             </Form.Group>
           </Form>
           <div className={loginStyle.button}>
-            <Button className={loginStyle.signUp} size="lg">
+            <Button className={`button ${loginStyle.signUp}`} size="lg">
               Sign Up
             </Button>
           </div>
@@ -60,7 +62,7 @@ const Register = () => {
             <p className={loginStyle.sign}>Already have an account?</p>
           </div>
           <div className={loginStyle.button}>
-            <Button className={loginStyle.signIn} size="lg">
+            <Button className={`button ${loginStyle.signIn}`} size="lg">
               Sign In
             </Button>
           </div>

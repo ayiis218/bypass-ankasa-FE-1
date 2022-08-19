@@ -40,10 +40,11 @@ a {
   box-sizing: border-box;
 }
 
-input[type="email"],
-input[type="password"],
-input[type="text"],
-textarea {
+/* Style Form */
+#formInput input[type="email"],
+#formInput input[type="password"],
+#formInput input[type="text"],
+#formInput .textarea {
   outline: none;
   box-shadow: none;
   border: 0px;
@@ -51,12 +52,12 @@ textarea {
   border-bottom: 2px solid #d2c2ff;
 }
 
-input[type="checkbox"],
-textarea {
+#formInput input[type="checkbox"],
+#formInput .textarea {
   border: 1px solid #2395ff;
 }
 
-i {
+#buttonEye i {
   position: absolute;
   border: 1px;
   top: 15%;
@@ -64,16 +65,17 @@ i {
   color: #2395ff;
 }
 
-i:hover {
+#buttonEye i:hover {
   color: #2395ff;
   cursor: pointer;
 }
 
-/* button {
+#styleButton .button {
   width: 300px;
   height: 50px;
   margin: 0 auto;
-} */
+}
+/* End Style Form */
 
 /* Search Input */
 #inputSearchHome .input-group-text {
