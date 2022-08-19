@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Default from '../../public/img/garuda.svg';
+import Default from '../../public/images/garuda.svg';
 import flight from '../../public/icons/flight.svg';
 import back from '../../public/icons/btnback.svg';
 

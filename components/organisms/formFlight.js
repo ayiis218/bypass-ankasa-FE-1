@@ -9,7 +9,7 @@ import back from '../../public/icons/btnback.svg';
 import arrow from '../../public/icons/arrow.svg';
 import go from '../../public/icons/white-arrow.svg';
 import full from '../../public/icons/fullScreen.svg';
-import Default from '../../public/img/bali.png';
+import Default from '../../public/images/bali.png';
 import style from './style/flight.module.css';
 
 const formFlight = () => {
