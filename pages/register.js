@@ -6,24 +6,32 @@ import { Container, Form, Button, InputGroup } from "react-bootstrap";
 import { AiOutlineEye } from "react-icons/ai";
 import { FaAngleLeft } from "react-icons/fa";
 import Blue from "../assets/illustration_blue.svg";
+import { useRouter } from "next/router";
 
 // custom components
-import loginStyle from "../styles/Pages/register.module.css";
+import loginStyle from "../styles/register.module.css";
 
 const Register = () => {
+  const router = useRouter();
   const eye = <AiOutlineEye size={25} />;
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
+  };
+  const backNavigate = () => {
+    router.back();
   };
 
   return (
     <>
       <section id="styleButton" className={loginStyle.main}>
         <Container className={loginStyle.header}>
-          <Link href="/">
-            <FaAngleLeft className={loginStyle.back} size={30} />
-          </Link>
+          <FaAngleLeft
+            className={loginStyle.back}
+            onClick={backNavigate}
+            size={30}
+          />
+
           <Link href="/home">
             <a className={loginStyle.guest}>Continue as Guest</a>
           </Link>
@@ -39,11 +47,6 @@ const Register = () => {
               <Form.Control type="email" placeholder="Email" size="lg" />
             </Form.Group>
             <InputGroup id="buttonEye" className={loginStyle.formControl} />
-            <Form.Control
-              type={passwordShown ? "text" : "password"}
-              placeholder="Password"
-              size="lg"
-            />
             <InputGroup className={loginStyle.formControl}>
               <Form.Control
                 type={passwordShown ? "text" : "password"}

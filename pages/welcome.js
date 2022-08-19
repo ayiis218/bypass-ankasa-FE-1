@@ -7,7 +7,7 @@ import { Carousel, Button } from "react-bootstrap";
 import Blue from "../assets/illustration_blue.svg";
 
 // custom components
-import loginStyle from "../styles/Pages/welcome.module.css";
+import loginStyle from "../styles/welcome.module.css";
 
 const Welcome = () => {
   const settings = {
@@ -25,19 +25,31 @@ const Welcome = () => {
         <Slider className={loginStyle.main} {...settings}>
           <div className={loginStyle.main}>
             <h3 className={loginStyle.head}>Get Started</h3>
-            <p className={loginStyle.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+            <p className={loginStyle.description}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
           </div>
           <div className={loginStyle.main}>
             <h3 className={loginStyle.head}>Get Started</h3>
-            <p className={loginStyle.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+            <p className={loginStyle.description}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
           </div>
           <div className={loginStyle.main}>
             <h3 className={loginStyle.head}>Get Started</h3>
-            <p className={loginStyle.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+            <p className={loginStyle.description}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
           </div>
           <div className={loginStyle.main}>
             <h3 className={loginStyle.head}>Get Started</h3>
-            <p className={loginStyle.description}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+            <p className={loginStyle.description}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore
+            </p>
           </div>
         </Slider>
         <div>

@@ -1,9 +1,9 @@
 import React from "react";
-import Footer from "../components/organisms/footer";
-import Header from "../components/organisms/header";
-import style from "../styles/MyBooking.module.css";
+import Footer from "../../components/organisms/footer";
+import Header from "../../components/organisms/header";
+import style from "../../styles/MyBooking.module.css";
 import { RiFlightTakeoffLine } from "react-icons/ri";
-import StatusTicket from "../components/organisms/statusTicket";
+import StatusTicket from "../../components/organisms/statusTicket";
 
 const MyBooking = () => {
   return (
