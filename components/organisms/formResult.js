@@ -32,14 +32,14 @@ const SearchResult = () => {
                         />
                      </div>
                   </div>
-                  <div className="row mt-3 m-1">
+                  <div className="row mt-5 m-2">
                      <div className={style.main}>
                         <p className="ms-1 me-auto">From</p>
                         <p className="me-3 ms-auto">To</p>
                      </div>
                      <div className={style.select}>
                         <div className="col-4">
-                           <select name="deptCity">
+                           <select name="deptCity" disabled>
                               <option value="">Medan</option>
                               <option value="loading">Loading</option>
                               <option value="error">Error</option>
@@ -50,7 +50,7 @@ const SearchResult = () => {
                            <Image className={style.imagePlane} src={arrow} />
                         </div>
                         <div className="col-4 ms-3">
-                           <select name="arrCity">
+                           <select name="arrCity" disabled>
                               <option value="">Tokyo</option>
                               <option value="loading">Loading</option>
                               <option value="error">Error</option>

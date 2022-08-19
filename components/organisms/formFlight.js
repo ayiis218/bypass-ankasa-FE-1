@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
+// import Zoom from 'next-image-zoom';
 import back from '../../public/icons/btnback.svg';
 import arrow from '../../public/icons/arrow.svg';
 import go from '../../public/icons/white-arrow.svg';
@@ -26,11 +26,11 @@ const formFlight = () => {
                         className={style.img}
                         src={Default}
                         alt="destinasi"
-                        height={220}
-                        width={490}
+                        height={290}
+                        width={470}
                      ></Image>
                      <div className={`row ms-2 ${style.icon}`}>
-                        <div className="col-6 mt-3">
+                        <div className="col-6 mt-4">
                            <Image
                               className={style.back}
                               src={back}
@@ -125,7 +125,7 @@ const formFlight = () => {
                   <div className="search-person mt-4 text-secondary">
                      <div>How many person?</div>
                      <div className={`mt-1 ${style.select}`}>
-                        <select className="form-check mb-3">
+                        <select className="form-check">
                            <option value="null" disabled="disabled" selected>
                               Child
                            </option>
@@ -133,14 +133,8 @@ const formFlight = () => {
                            <option value="2">2 Child</option>
                            <option value="3">3 Child</option>
                            <option value="4">4 Child</option>
-                           <option value="5">5 Child</option>
-                           <option value="6">6 Child</option>
-                           <option value="7">7 Child</option>
-                           <option value="8">8 Child</option>
-                           <option value="9">9 Child</option>
-                           <option value="10">10 Child</option>
                         </select>
-                        <select className="form-check mb-3">
+                        <select className="form-check">
                            <option value="null" disabled="disabled" selected>
                               Adult
                            </option>
@@ -148,19 +142,11 @@ const formFlight = () => {
                            <option value="2">2 Adult</option>
                            <option value="3">3 Adult</option>
                            <option value="4">4 Adult</option>
-                           <option value="5">5 Adult</option>
-                           <option value="6">6 Adult</option>
-                           <option value="7">7 Adult</option>
-                           <option value="8">8 Adult</option>
-                           <option value="9">9 Adult</option>
-                           <option value="10">10 Adult</option>
                         </select>
                      </div>
                   </div>
-                  <div>
-                     <div className="search-person mt-3 text-secondary">
-                        Which class do you want?
-                     </div>
+                  <div className="mt-5 text-secondary">
+                     <div>Which class do you want?</div>
                      <div className={style.radio}>
                         <div>
                            <input type="radio" name="radio" id="radio1" />
@@ -178,7 +164,7 @@ const formFlight = () => {
                   </div>
                   <button
                      className={`mt-4 ${style.button}`}
-                     onClick={() => router.push('/flight/result')}
+                     onClick={() => router.push('/result')}
                   >
                      Search Flight
                      <Image src={go} alt="" />
