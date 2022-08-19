@@ -50,8 +50,6 @@ const TrendingDestinations = (props) => {
     ],
   };
 
-  console.log(props?.data);
-
   return (
     <>
       <div className="row mt-4">
