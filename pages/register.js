@@ -39,7 +39,11 @@ const Register = () => {
               <Form.Control type="email" placeholder="Email" size="lg" />
             </Form.Group>
             <InputGroup className={loginStyle.formControl}>
-              <Form.Control type={passwordShown ? "text" : "password"} placeholder="Password" size="lg" />
+              <Form.Control
+                type={passwordShown ? "text" : "password"}
+                placeholder="Password"
+                size="lg"
+              />
               <i onClick={togglePasswordVisiblity}>{eye}</i>
             </InputGroup>
             <Form.Group className={loginStyle.formControl}>
