@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../styles/Home.module.css";
+import style from "../../styles/Home.module.css";
 import { TbCalendarTime } from "react-icons/tb";
 import { RiCompass3Fill } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";

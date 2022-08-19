@@ -40,6 +40,12 @@ const Register = () => {
             </Form.Group>
             <InputGroup id="buttonEye" className={loginStyle.formControl}>
               <Form.Control type={passwordShown ? "text" : "password"} placeholder="Password" size="lg" />
+            <InputGroup className={loginStyle.formControl}>
+              <Form.Control
+                type={passwordShown ? "text" : "password"}
+                placeholder="Password"
+                size="lg"
+              />
               <i onClick={togglePasswordVisiblity}>{eye}</i>
             </InputGroup>
             <Form.Group className={loginStyle.formControl}>
