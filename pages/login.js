@@ -23,24 +23,24 @@ const Login = () => {
 
   return (
     <>
-      <section className={loginStyle.main}>
+      <section id="styleButton" className={loginStyle.main}>
         <Link href="/">
           <FaAngleLeft className={loginStyle.back} size={30} />
         </Link>
         <Image src={Blue} height={250} width={250} />
         <div>
           <h3 className={loginStyle.head}>Login</h3>
-          <Form>
+          <Form id="formInput">
             <Form.Group className={loginStyle.formControl}>
               <Form.Control type="email" placeholder="Email" size="lg" />
             </Form.Group>
-            <InputGroup className={loginStyle.formControl}>
+            <InputGroup id="buttonEye" className={loginStyle.formControl}>
               <Form.Control type={passwordShown ? "text" : "password"} placeholder="Password" size="lg" />
               <i onClick={togglePasswordVisiblity}>{eye}</i>
             </InputGroup>
           </Form>
           <div className={loginStyle.button}>
-            <Button className={loginStyle.sign} size="lg">
+            <Button className={`button {loginStyle.sign}`} size="lg">
               Sign In
             </Button>
           </div>
