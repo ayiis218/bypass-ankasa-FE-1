@@ -34,8 +34,10 @@ const Login = () => {
             <Form.Group className={loginStyle.formControl}>
               <Form.Control type="email" placeholder="Email" size="lg" />
             </Form.Group>
-            <InputGroup id="buttonEye" className={loginStyle.formControl}>
-              <Form.Control type={passwordShown ? "text" : "password"} placeholder="Password1" size="lg" />
+            <InputGroup id="buttonEye" className={loginStyle.formControl} />
+            <Form.Control type={passwordShown ? "text" : "password"} placeholder="Password1" size="lg" />
+            <InputGroup className={loginStyle.formControl}>
+              <Form.Control type={passwordShown ? "text" : "password"} placeholder="Password" size="lg" />
               <i onClick={togglePasswordVisiblity}>{eye}</i>
             </InputGroup>
           </Form>
