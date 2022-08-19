@@ -26,7 +26,7 @@ const Explore = () => {
                     className="form-control"
                     aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-lg"
-                    placeholder="Where you want to go?"
+                    placeholder="Where you want to go ?"
                   />
                 </div>
               </div>
