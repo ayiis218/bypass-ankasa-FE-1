@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../component/footer";
+import Footer from "../components/organisms/footer";
 import style from "../styles/Profile.module.css";
 import imgUser from "../public/images/user.jpeg";
 import Image from "next/image";

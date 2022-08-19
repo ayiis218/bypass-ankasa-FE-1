@@ -1,0 +1,47 @@
+.section {
+   font-family: 'Poppins', sans-serif, 'Lato';
+   font-weight: bold;
+   height: 115vh;
+   width: 415px;
+   background-color: var(--color-1);
+   box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+}
+.label {
+   color: var(--color-4);
+   margin-right: 15px;
+}
+.section h3 {
+   margin-left: 25px;
+   font-size: xx-large;
+   font-weight: bold;
+}
+.card {
+   width: 340px;
+   margin-left: 35px;
+   margin-top: 15px;
+   padding: 10px;
+   background-color: var(--color-7);
+   box-shadow: 0 0 0 1px var(--color-4);
+   border-radius: 13px;
+}
+.card h6 {
+   font-weight: bold;
+   color: var(--color-4);
+}
+.card p {
+   font-family: 'Lato';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 14px;
+}
+
+@media screen and (min-width: 400px) {
+   .section {
+      width: 405px;
+   }
+   .card {
+      margin-top: 20px;
+      width: 330px;
+   }
+}
