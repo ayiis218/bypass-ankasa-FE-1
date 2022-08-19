@@ -1,0 +1,77 @@
+section.main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 25% auto;
+}
+
+.back {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+a.guest {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  text-decoration: none;
+  color: #2395ff;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+h3.head {
+  margin-bottom: 50px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.formControl {
+  margin-bottom: 10px;
+}
+
+div.button {
+  display: grid;
+  margin-top: 20px;
+}
+
+button.signIn {
+  border: 1px solid #2395ff;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  color: #2395ff;
+}
+
+div.border {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-bottom: 1px solid #d8d8d8;
+  width: 85%;
+}
+
+p.sign {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+button.signUp {
+  font: bold;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  background-color: #2395ff;
+  color: white;
+}

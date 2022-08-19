@@ -1,0 +1,78 @@
+section.main {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+
+.back {
+  margin-bottom: 10px;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+h3.head {
+  margin-bottom: 50px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.formControl {
+  margin-bottom: 10px;
+}
+
+div.button {
+  display: grid;
+  margin-top: 20px;
+}
+
+button.sign {
+  font: bold;
+  border: none;
+  background-color: transparent;
+  resize: none;
+  outline: none;
+  background-color: #2395ff;
+  color: white;
+}
+
+p.forgot {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+a.forgot {
+  display: flex;
+  justify-content: center;
+  color: #2395ff;
+}
+
+div.border {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-bottom: 1px solid #d8d8d8;
+  width: 85%;
+}
+
+p.sign {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+button.signWith {
+  width: 70px;
+  background-color: transparent;
+  border-radius: 1px thick #4086f4;
+}
+
+button.signWith:hover {
+  width: 70px;
+  background-color: #d8d8d8;
+  border-radius: 1px thick #4086f4;
+}
