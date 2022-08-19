@@ -1,0 +1,75 @@
+.body {
+  padding: 0;
+  height: 100vh;
+}
+
+div.header {
+  display: grid;
+  grid-template-columns: 25% auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.back {
+  margin-left: 10px;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+a.filter {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: bold;
+  text-decoration: none;
+  color: #2395ff;
+  margin-right: 10px;
+}
+
+h3.head {
+  margin-bottom: 50px;
+  padding-left: 10px;
+  font-weight: 700;
+}
+
+.chatBody {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 20% auto;
+  padding: 5px;
+  margin-top: 10px;
+  border-bottom: 1px solid #d8d8d8;
+  width: 95%;
+}
+
+.photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+}
+
+.timeAndStatus {
+  display: grid;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.name {
+  text-align: start;
+  font-weight: bold;
+  font-size: large;
+}
+
+.time {
+  text-align: end;
+}
+
+.status {
+  justify-content: flex-end;
+}

@@ -1,0 +1,17 @@
+.body {
+  padding: 0;
+}
+
+div.main {
+  display: grid;
+  align-content: center;
+  align-items: center;
+  background-color: #2395ff;
+  height: 100vh;
+}
+
+h3.head {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
