@@ -4,11 +4,14 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
+import { Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Default from '../../public/img/garuda.svg';
 import flight from '../../public/icons/flight.svg';
 import back from '../../public/icons/btnback.svg';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
 import style from './style/detail.module.css';
 
 const formFlight = () => {
@@ -108,17 +111,37 @@ const formFlight = () => {
                         </div>
                      </div>
                   </div>
+
                   <div className={style.main}>
                      <div>
                         <h5>Facilities</h5>
-                        <div className="row mt-3">
-                           <div className="col-5">
-                              <button className={style.snack}>Snack</button>
+                        <Swiper
+                           slidesPerView={2.5}
+                           slidesPerGroup={1}
+                           loopFillGroupWithBlank
+                        >
+                           <div className="row mt-3">
+                              <SwiperSlide>
+                                 <div className="col-5">
+                                    <button className={style.snack}>
+                                       Snack
+                                    </button>
+                                 </div>
+                              </SwiperSlide>
+                              <SwiperSlide>
+                                 <div className="col-5">
+                                    <button className={style.wifi}>Wifi</button>
+                                 </div>
+                              </SwiperSlide>
+                              <SwiperSlide>
+                                 <div className="col-2">
+                                    <button className={style.room}>
+                                       Restroom
+                                    </button>
+                                 </div>
+                              </SwiperSlide>
                            </div>
-                           <div className="col-5">
-                              <button className={style.wifi}>Wifi</button>
-                           </div>
-                        </div>
+                        </Swiper>
                      </div>
 
                      <div>

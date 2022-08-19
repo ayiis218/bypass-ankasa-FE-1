@@ -66,7 +66,7 @@
 }
 
 .snack {
-   width: 120px;
+   width: 136px;
    background-color: #6DDA6B;
    padding: 15px;
    color: #fff;
@@ -77,7 +77,7 @@
 }
 
 .wifi {
-   width: 120px;
+   width: 136px;
    background-color: #7861D7;
    padding: 15px;
    color: #fff;
@@ -87,6 +87,16 @@
    border-radius: 8px;
 }
 
+.room {
+   width: 136px;
+   background-color: #E45D32;
+   padding: 15px;
+   color: #fff;
+   font-weight: 700;
+   text-transform: uppercase;
+   border: 0;
+   border-radius: 8px;
+}
 .button {
    width: 100%;
    padding: 15px;
