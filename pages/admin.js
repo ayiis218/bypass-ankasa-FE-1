@@ -41,7 +41,8 @@ function Admin() {
             <thead>
               <tr className="table-primary">
                 <th scope="col">No</th>
-                <th scope="col">Booking Ticket</th>
+                <th scope="col">PIC</th>
+                <th scope="col">Destination</th>
                 <th scope="col">Date</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
@@ -50,6 +51,7 @@ function Admin() {
             <tbody>
               <tr>
                 <th scope="row">1</th>
+                <td>Rezha Riansyah R.</td>
                 <td>IDN to JPN</td>
                 <td>Monday, 20 July ‘20 - 12:33</td>
                 <td>Waiting</td>
@@ -68,6 +70,7 @@ function Admin() {
               </tr>
               <tr>
                 <th scope="row">2</th>
+                <td>Rezha Riansyah R.</td>
                 <td>IDN to JPN</td>
                 <td>Monday, 20 July ‘20 - 12:33</td>
                 <td>Waiting</td>
@@ -86,6 +89,7 @@ function Admin() {
               </tr>
               <tr>
                 <th scope="row">3</th>
+                <td>Rezha Riansyah R.</td>
                 <td>IDN to JPN</td>
                 <td>Monday, 20 July ‘20 - 12:33</td>
                 <td>Waiting</td>
