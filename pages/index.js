@@ -7,10 +7,18 @@ import Footer from "../components/organisms/footer";
 import Header from "../components/organisms/header";
 import TrendingDestinations from "../components/organisms/trendingDestinations";
 import TopTenDestinations from "../components/organisms/topTenDestinations";
+import { useRouter } from "next/router";
 
 const Explore = (props) => {
   const [trendingDest] = useState(props?.trendingDest?.data);
   const [topTenDest] = useState(props?.topTenDest?.data);
+  const [searchDestination, setSearchDestination] = useState("");
+  const router = useRouter();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    router.push(`/search-flight/${searchDestination}`);
+  };
 
   return (
     <>
@@ -20,18 +28,24 @@ const Explore = (props) => {
             <Header title={"Explore"} />
             <div className="container py-4">
               <div id="inputSearchHome" className="row mt-4">
-                <div className="input-group input-group-lg">
-                  <span className="input-group-text" id="inputGroup-sizing-lg">
-                    <FiSearch size={30} color="#A3A3A3" />
-                  </span>
-                  <input
-                    type="text"
-                    className="form-control"
-                    aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-lg"
-                    placeholder="Where you want to go ?"
-                  />
-                </div>
+                <form onSubmit={handleSearch}>
+                  <div className="input-group input-group-lg">
+                    <span
+                      className="input-group-text"
+                      id="inputGroup-sizing-lg"
+                    >
+                      <FiSearch size={30} color="#A3A3A3" />
+                    </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-lg"
+                      placeholder="Where you want to go?"
+                      onChange={(e) => setSearchDestination(e.target.value)}
+                    />
+                  </div>
+                </form>
               </div>
               <div className="py-4">
                 <TrendingDestinations data={trendingDest} />
