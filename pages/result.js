@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import FormResult from '../../components/organisms/formResult';
+import FormResult from '../components/organisms/formResult';
 
 function result() {
    return (
