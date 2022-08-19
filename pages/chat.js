@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -10,7 +9,7 @@ import { BsCheckAll } from "react-icons/bs";
 import Photo from "../assets/examplePhoto.svg";
 
 // custom components
-import loginStyle from "../styles/Pages/chat.module.css";
+import loginStyle from "../styles/chat.module.css";
 
 const Register = () => {
   return (
@@ -31,7 +30,13 @@ const Register = () => {
               <span className="input-group-text" id="inputGroup-sizing-lg">
                 <FiSearch size={30} color="#A3A3A3" />
               </span>
-              <input type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Type your message ....." />
+              <input
+                type="text"
+                className="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg"
+                placeholder="Type your message ....."
+              />
             </div>
           </div>
           {[...new Array(10)].map((item, key) => (

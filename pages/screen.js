@@ -5,7 +5,7 @@ import White from "../assets/illustration_white.svg";
 import { Container } from "react-bootstrap";
 
 // custom components
-import loginStyle from "../styles/Pages/screen.module.css";
+import loginStyle from "../styles/screen.module.css";
 
 const Welcome = () => {
   return (
