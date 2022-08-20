@@ -83,20 +83,6 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
                         </h6>
                         <h6 className={style.filter}>Filter</h6>
                         <Image className={style.filterImg} src={filter} />
-                        {/* <i
-                           className="fa-solid fa-arrow-up-a-z"
-                           style={{ marginRight: '0px' }}
-                           onClick={() => {
-                              setMode('DESC');
-                           }}
-                        ></i>
-                        <i
-                           className="fa-solid fa-arrow-up-z-a"
-                           style={{ marginRight: '0px' }}
-                           onClick={() => {
-                              setMode('ASC');
-                           }}
-                        ></i> */}
                      </div>
                      {!data.length ? (
                         <></>
