@@ -16,14 +16,20 @@ import style from './style/detail.module.css';
 
 const formFlight = ({ data }) => {
    const router = useRouter();
-   // const feature = data?.map((item) => item.facilities);
+   /*    const feature = data?.map((item) => item.facilities);
+   const file = feature.map((item) => item);
+   console.log(feature); */
    return (
       <div className={style.section}>
          <div className="container">
             <div className="row">
                <div className={style.header}>
                   <div className={`ms-2 mt-4 ${style.icon}`}>
-                     <Image src={back} alt="Back" />
+                     <Image
+                        src={back}
+                        alt="Back"
+                        onClick={() => router('/result')}
+                     />
                   </div>
                </div>
                {!data.length ? (
@@ -125,13 +131,23 @@ const formFlight = ({ data }) => {
                            <div className={style.main}>
                               <div>
                                  <h5>Facilities</h5>
+
                                  <Swiper
                                     slidesPerView={2.5}
                                     slidesPerGroup={1}
                                     loopFillGroupWithBlank
                                  >
                                     <div className="row mt-3">
-                                       <SwiperSlide>
+                                       {item.facilities.map((item, index) => (
+                                          <SwiperSlide key={index}>
+                                             <div className="col-5">
+                                                <button className={style.snack}>
+                                                   {item}
+                                                </button>
+                                             </div>
+                                          </SwiperSlide>
+                                       ))}
+                                       {/* <SwiperSlide>
                                           <div className="col-5">
                                              <button className={style.snack}>
                                                 {item.facilities[0]}
@@ -151,7 +167,7 @@ const formFlight = ({ data }) => {
                                                 {item.facilities[2]}
                                              </button>
                                           </div>
-                                       </SwiperSlide>
+                                       </SwiperSlide> */}
                                     </div>
                                  </Swiper>
                               </div>
@@ -164,7 +180,15 @@ const formFlight = ({ data }) => {
                                        </div>
                                        <div className="col-6">
                                           <div className="ms-5">
-                                             <p>{item.price}</p>
+                                             <h6
+                                                style={{
+                                                   color: '#2395FF',
+                                                   fontSize: '24px',
+                                                   fontWeight: '500',
+                                                }}
+                                             >
+                                                $ {item.price}
+                                             </h6>
                                           </div>
                                        </div>
                                     </div>
@@ -173,9 +197,7 @@ const formFlight = ({ data }) => {
                               <button
                                  className={style.button}
                                  onClick={() =>
-                                    router.push(
-                                       `/my-booking/detail/${item.ticket_id}`
-                                    )
+                                    router.push(`/my-booking/${item.ticket_id}`)
                                  }
                               >
                                  BOOK FLIGHT
