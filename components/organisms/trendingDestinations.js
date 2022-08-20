@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import Image from "next/image";
 import exampleImgDestination from "../../public/images/example-destination.png";
 
-const TrendingDestinations = () => {
+const TrendingDestinations = (props) => {
   const settings = {
     dots: false,
     infinite: false,
@@ -18,7 +18,7 @@ const TrendingDestinations = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
@@ -27,7 +27,7 @@ const TrendingDestinations = () => {
       {
         breakpoint: 1000,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -35,7 +35,7 @@ const TrendingDestinations = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -43,7 +43,7 @@ const TrendingDestinations = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
         },
       },
@@ -62,51 +62,25 @@ const TrendingDestinations = () => {
       </div>
       <div className="row mt-2">
         <Slider {...settings}>
-          <div className={`card ${style.destinationsCarousel}`}>
-            <Image
-              className={style.destinationsImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
-            <div className={style.totalAirlines}>
-              <span>15 Airlines</span>
-            </div>
-            <div className={style.destinationTitle}>
-              <span className={style.destinationCity}>Tokyo,</span>
-              <br />
-              <span>Japan</span>
-            </div>
-          </div>
-          <div className={`card ${style.destinationsCarousel}`}>
-            <Image
-              className={style.destinationsImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
-            <div className={style.totalAirlines}>
-              <span>15 Airlines</span>
-            </div>
-            <div className={style.destinationTitle}>
-              <span className={style.destinationCity}>Tokyo,</span>
-              <br />
-              <span>Japan</span>
-            </div>
-          </div>
-          <div className={`card ${style.destinationsCarousel}`}>
-            <Image
-              className={style.destinationsImage}
-              src={exampleImgDestination}
-              layout="fill"
-            />
-            <div className={style.totalAirlines}>
-              <span>15 Airlines</span>
-            </div>
-            <div className={style.destinationTitle}>
-              <span className={style.destinationCity}>Tokyo,</span>
-              <br />
-              <span>Japan</span>
-            </div>
-          </div>
+          {props?.data?.map((item, index) => {
+            return (
+              <div key={index} className={`card ${style.destinationsCarousel}`}>
+                <Image
+                  className={style.destinationsImage}
+                  src={item.destination_image}
+                  layout="fill"
+                />
+                <div className={style.totalAirlines}>
+                  <span>{item.count} Airlines</span>
+                </div>
+                <div className={style.destinationTitle}>
+                  <span className={style.destinationCity}>{item.city},</span>
+                  <br />
+                  <span>{item.country}</span>
+                </div>
+              </div>
+            );
+          })}
         </Slider>
       </div>
     </>

@@ -1,290 +1,291 @@
 .section {
-   font-family: 'Poppins', 'Lato';
-   font-weight: bold;
-   height: 100vh;
-   width: 425px;
-   box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  font-family: "Poppins", "Lato";
+  font-weight: bold;
+  height: 100vh;
+  width: 425px;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
 }
 
 /* blok 1 */
 .header {
-   position: relative;
-   background-color: var(--color-4);
-   width: 100%;
-   height: 230px;
-   border-radius: 0px 0px 30px 30px;
+  position: relative;
+  background-color: var(--color-4);
+  width: 100%;
+  height: 230px;
+  border-radius: 0px 0px 30px 30px;
 }
 
 .img {
-   border-radius: 0 0 25px 25px;
-   filter: brightness(0.8);
+  border-radius: 0 0 25px 25px;
+  filter: brightness(0.8);
 }
 
 .icon {
-   width: 385px;
-   position: absolute;
+  width: 385px;
+  position: absolute;
 }
 
 .full {
-   position: absolute;
-   z-index: 2;
-   margin-top: 5px;
+  position: absolute;
+  z-index: 2;
+  margin-top: 5px;
 }
 
 .title {
-   position: absolute;
-   color: var(--mainColor);
-   font-family: 'Poppins';
-   font-style: normal;
-   font-weight: 300px;
-   font-size: 24px;
-   margin-left: 18px;
-   margin-top: 145px;
-   filter: brightness(1) drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+  position: absolute;
+  color: var(--mainColor);
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300px;
+  font-size: 24px;
+  margin-left: 18px;
+  margin-top: 145px;
+  filter: brightness(1) drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
 }
 
 /* blok 2 */
 .container {
-   position: inherit;
-   top: 100px;
-   width: 100%;
-   height: 100vh;
-   background-color: var(--mainColor);
-   border-radius: 12px;
-   padding: 30px;
-   box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  position: inherit;
+  top: 100px;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--mainColor);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
 }
 
 .content {
-   position: relative;
-   background-color: var(--mainColor);
-   width: 345px;
-   top: -70px;
-   box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
-   border-radius: 12px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+  position: relative;
+  background-color: var(--mainColor);
+  width: 345px;
+  top: -70px;
+  box-shadow: 0px 8px 27px rgba(14, 63, 108, 0.19);
+  border-radius: 12px;
 }
 
 .box {
-   height: 110px;
-   padding: 6px 15px;
+  height: 110px;
+  padding: 6px 15px;
+}
+
+.box p {
+  margin-bottom: 0px;
 }
 
 .box select {
-   font-weight: bold;
-   font-size: x-large;
-   background: transparent;
-   background-image: url('/public/icons/iconright.svg');
-   background-repeat: no-repeat;
-   background-position-x: 90%;
-   background-position-y: 20px;
+  font-weight: bold;
+  font-size: x-large;
+  background: transparent;
+  background-image: url("/public/icons/iconright.svg");
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 20px;
 }
 
 .dest {
-   color: var(--color-5);
-   font-family: 'Lato';
-   font-style: normal;
+  color: var(--color-5);
+  font-family: "Lato";
+  font-style: normal;
 }
 
 .type {
-   margin-top: -60px;
-   justify-content: space-between;
+  margin-top: -60px;
+  justify-content: space-between;
 }
 
 .mode {
-   list-style-type: none;
-   margin-left: 15px;
-   padding: 0;
+  list-style-type: none;
+  margin-left: 15px;
+  padding: 0;
 }
 
 .mode li {
-   margin: 0 5px 0 0;
-   width: 150px;
-   height: 50px;
-   position: relative;
+  margin: 0 5px 0 0;
+  width: 150px;
+  height: 50px;
+  position: relative;
 }
 
 .mode label,
 .mode input {
-   display: block;
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   border: 0;
-   border-radius: 7px;
-   background-color: var(--color-2);
-   background-repeat: no-repeat;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  border-radius: 7px;
+  background-color: var(--color-2);
+  background-repeat: no-repeat;
 }
 
 .mode .one-way label {
-   padding-left: 20px;
+  padding-left: 20px;
 }
 
 .mode .round-trip label {
-   padding-left: 25px;
+  padding-left: 25px;
 }
 
 .mode .one-way label,
 .mode .one-way input {
-   background-position: 30px 15px;
-   background-image: url('/public/icons/one-way-black.svg');
+  background-position: 30px 15px;
+  background-image: url("/public/icons/one-way-black.svg");
 }
 
 .mode .one-way label:hover,
 .mode .one-way input:hover {
-   background-color: var(--text-blue);
-   color: var(--text-white);
-   background-repeat: no-repeat;
-   background-position: 30px 15px;
-   background-image: url('/public/icons/one-way-white.svg');
+  background-color: var(--text-blue);
+  color: var(--text-white);
+  background-repeat: no-repeat;
+  background-position: 30px 15px;
+  background-image: url("/public/icons/one-way-white.svg");
 }
 
 .mode .round-trip label,
 .mode .round-trip input {
-   background-position: 25px 15px;
-   background-image: url('/public/icons/round-trip-black.svg');
+  background-position: 25px 15px;
+  background-image: url("/public/icons/round-trip-black.svg");
 }
 
 .mode .round-trip label:hover,
 .mode .round-trip input:hover {
-   background-color: var(--text-blue);
-   color: var(--text-white);
-   background-repeat: no-repeat;
-   background-position: 25px 15px;
-   background-image: url('/public/icons/round-trip-white.svg');
+  background-color: var(--text-blue);
+  color: var(--text-white);
+  background-repeat: no-repeat;
+  background-position: 25px 15px;
+  background-image: url("/public/icons/round-trip-white.svg");
 }
 
 .mode label {
-   text-align: center;
-   line-height: 35px;
+  text-align: center;
+  line-height: 35px;
 }
 
-.mode input[type='radio'] {
-   opacity: 0.01;
-   z-index: 100;
+.mode input[type="radio"] {
+  opacity: 0.01;
+  z-index: 100;
 }
 
-.mode input[type='radio']:checked+label,
-.Checked+label {
-   background: var(--color-4);
-   color: var(--color-1);
+.mode input[type="radio"]:checked + label,
+.Checked + label {
+  background: var(--color-4);
+  color: var(--color-1);
 }
 
-.mode .one-way input[type='radio']:checked+label,
-.Checked+label {
-   background-repeat: no-repeat;
-   background-position: 30px 15px;
-   background-image: url('/public/icons/one-way-white.svg');
+.mode .one-way input[type="radio"]:checked + label,
+.Checked + label {
+  background-repeat: no-repeat;
+  background-position: 30px 15px;
+  background-image: url("/public/icons/one-way-white.svg");
 }
 
-.mode .round-trip input[type='radio']:checked+label,
-.Checked+label {
-   background-repeat: no-repeat;
-   background-position: 25px 15px;
-   background-image: url('/public/icons/round-trip-white.svg');
+.mode .round-trip input[type="radio"]:checked + label,
+.Checked + label {
+  background-repeat: no-repeat;
+  background-position: 25px 15px;
+  background-image: url("/public/icons/round-trip-white.svg");
 }
 
 .mode label {
-   padding: 5px;
-   border: 1px solid var(--color-2);
-   cursor: pointer;
-   z-index: 90;
+  padding: 5px;
+  border: 1px solid var(--color-2);
+  cursor: pointer;
+  z-index: 90;
 }
 
 .mode label:hover {
-   background: var(--color-2);
+  background: var(--color-2);
 }
 
 .date {
-   border: 0 solid var(--color-3);
-   border-radius: 7px;
-   margin-top: 5px;
+  border: 0 solid var(--color-3);
+  border-radius: 7px;
+  margin-top: 5px;
 }
 
 .select {
-   display: flex;
-   justify-content: space-between;
-   margin-top: -8px;
-   width: 100%;
-   gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -8px;
+  width: 100%;
+  gap: 20px;
 }
 
 .select select {
-   -webkit-appearance: none;
-   -moz-appearance: none;
-   background: transparent;
-   background-image: url('/public/icons/iconright.svg');
-   background-repeat: no-repeat;
-   background-position-x: 90%;
-   background-position-y: 20px;
-   border: 2px solid var(--color-3);
-   border-radius: 7px;
-   margin-right: 1rem;
-   padding: 1rem;
-   width: 380px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("/public/icons/iconright.svg");
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 20px;
+  border: 2px solid var(--color-3);
+  border-radius: 7px;
+  margin-right: 1rem;
+  padding: 1rem;
+  width: 380px;
 }
 
 .radio {
-   display: flex;
-   position: relative;
+  display: flex;
+  position: relative;
 }
 
 .radio label {
-   display: flex;
-   margin: 3px;
-   margin-left: 10px;
+  display: flex;
+  margin: 3px;
+  margin-left: 10px;
 
-   font-family: 'Lato';
-   font-style: normal;
+  font-family: "Lato";
+  font-style: normal;
 }
 
-.radio input[type='radio'] {
-   display: none;
+.radio input[type="radio"] {
+  display: none;
 }
 
-.radio input[type='radio']+label:before {
-   content: '';
-   display: inline-block;
-   width: 25px;
-   height: 25px;
-   padding: 6px;
-   background-clip: content-box;
-   border: 2px solid var(--color-4);
-   background-color: none;
-   border-radius: 50%;
+.radio input[type="radio"] + label:before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+  background-clip: content-box;
+  border: 2px solid var(--color-4);
+  background-color: none;
+  border-radius: 50%;
 }
 
-.radio input[type='radio']:checked+label:before {
-   background-color: var(--color-4);
+.radio input[type="radio"]:checked + label:before {
+  background-color: var(--color-4);
 }
 
 .button {
-   width: 100%;
-   padding: 15px;
-   background-color: #2395ff;
-   color: #fff;
-   font-weight: 700;
-   text-transform: uppercase;
-   border: 0;
-   border-radius: 8px;
+  width: 100%;
+  padding: 15px;
+  background-color: #2395ff;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 8px;
 }
 
 .button:hover {
-   box-shadow: 0px 10px 10px rgba(47, 153, 253, 0.3);
+  box-shadow: 0px 10px 10px rgba(47, 153, 253, 0.3);
 }
 
 @media screen and (min-width: 400px) {
-   .section {
-      width: 405px;
-      overflow: visible;
-   }
+  .section {
+    width: 405px;
+    overflow: visible;
+  }
 
-   .card {
-      margin-top: 20px;
-      width: 330px;
-   }
+  .card {
+    margin-top: 20px;
+    width: 330px;
+  }
 }
