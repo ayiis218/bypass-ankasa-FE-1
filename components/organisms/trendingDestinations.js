@@ -18,7 +18,7 @@ const TrendingDestinations = (props) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
@@ -27,7 +27,7 @@ const TrendingDestinations = (props) => {
       {
         breakpoint: 1000,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -35,7 +35,7 @@ const TrendingDestinations = (props) => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -43,7 +43,7 @@ const TrendingDestinations = (props) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
         },
       },
