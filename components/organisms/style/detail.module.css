@@ -57,8 +57,9 @@
 }
 
 .city {
+   position: relative;
    font-weight: bold;
-   font-size: xx-large;
+   font-size: x-large;
 }
 
 .main {
@@ -97,6 +98,7 @@
    border: 0;
    border-radius: 8px;
 }
+
 .button {
    width: 100%;
    padding: 15px;
