@@ -8,6 +8,8 @@ import Facebook from "../assets/facebook.svg";
 import Google from "../assets/google.svg";
 import Fingerprint from "../assets/fingerprint.svg";
 import { useRouter } from "next/router";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 import Blue from "../assets/illustration_blue.svg";
 
@@ -15,6 +17,30 @@ import Blue from "../assets/illustration_blue.svg";
 import loginStyle from "../styles/login.module.css";
 
 const Login = () => {
+  const passwordLength = {
+    min: 6,
+    max: 20
+  }
+
+  const LoginSchema = Yup.object().shape({
+    email: Yup.string().email().required('Email should not be empty')  ,
+    password: Yup.string()
+      .min(passwordLength.min, `Password length must be ${passwordLength.min} or more characters`)
+      .max(passwordLength.max, `Password shold not be more than ${passwordLength.max} characters`)
+      .required('Password shold not be empty'),
+  })
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    validationSchema: LoginSchema,
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })
+
   const router = useRouter();
   const eye = <AiOutlineEye size={25} />;
   const [passwordShown, setPasswordShown] = useState(false);
@@ -33,28 +59,31 @@ const Login = () => {
           onClick={backNavigate}
           size={30}
         />
-        <Image src={Blue} height={250} width={250} />
+        <Image src={Blue} alt="" height={250} width={250} />
         <div>
           <h3 className={loginStyle.head}>Login</h3>
-          <Form id="formInput">
+          <Form id="formInput" onSubmit={formik.handleSubmit}>
             <Form.Group className={loginStyle.formControl}>
-              <Form.Control type="email" placeholder="Email" size="lg" />
+              <Form.Control type="email" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Email" size="lg" />
             </Form.Group>
             <InputGroup id="buttonEye" className={loginStyle.formControl} />
             <InputGroup className={loginStyle.formControl}>
               <Form.Control
                 type={passwordShown ? "text" : "password"}
                 placeholder="Password"
+                name="password"
+                onChange={formik.handleChange}
+                value={formik.values.password}
                 size="lg"
               />
               <i onClick={togglePasswordVisiblity}>{eye}</i>
             </InputGroup>
+            <div className={loginStyle.button}>
+              <Button className={`button {loginStyle.sign}`} type="submit" size="lg">
+                Sign In
+              </Button>
+            </div>
           </Form>
-          <div className={loginStyle.button}>
-            <Button className={`button {loginStyle.sign}`} size="lg">
-              Sign In
-            </Button>
-          </div>
           <div>
             <p className={loginStyle.forgot}>Did you forgot your password?</p>
             <Link href="/forgot">
@@ -69,17 +98,17 @@ const Login = () => {
             <Row>
               <Col>
                 <Button className={loginStyle.signWith}>
-                  <Image src={Google} height={25} width={25} />
+                  <Image src={Google} alt="" height={25} width={25} />
                 </Button>
               </Col>
               <Col>
                 <Button className={loginStyle.signWith}>
-                  <Image src={Facebook} height={25} width={25} />
+                  <Image src={Facebook} alt="" height={25} width={25} />
                 </Button>
               </Col>
               <Col>
                 <Button className={loginStyle.signWith}>
-                  <Image src={Fingerprint} height={25} width={25} />
+                  <Image src={Fingerprint} alt="" height={25} width={25} />
                 </Button>
               </Col>
             </Row>
