@@ -29,7 +29,8 @@ const authSlice = createSlice({
   initialState: {
     token: null,
     isLoading: false,
-    error: null
+    error: null,
+    isRegistered: false
   },
   reducers: {
     clearError: (state) => {
@@ -37,8 +38,12 @@ const authSlice = createSlice({
     },
     logout: (state) => {
       state.token = null
-      state.isLoading = null
+      state.isLoading = false
       state.error = null
+      state.isRegistered = false
+    },
+    setRegistered: (state, { payload }) => {
+      state.isRegistered = payload
     }
   },
   extraReducers: {
@@ -63,13 +68,20 @@ const authSlice = createSlice({
     [register.pending]: (state) => {
       state.isLoading = true
       state.error = null
+      state.isRegistered = false
+    },
+    [register.fulfilled]: (state) => {
+      state.isLoading = false
+      state.error = null
+      state.isRegistered = true
     },
     [register.rejected]: (state, { payload })=> {
       state.error = payload
       state.isLoading = false
+      state.isRegistered = false
     }
   }
 })
 
-export const { clearError, logout } = authSlice.actions
+export const { clearError, logout, setRegistered } = authSlice.actions
 export default authSlice.reducer

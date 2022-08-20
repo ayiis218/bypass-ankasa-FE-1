@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Form, Button, InputGroup, Alert } from 'react-bootstrap';
 import { AiOutlineEye } from 'react-icons/ai';
 import { FaAngleLeft } from 'react-icons/fa';
@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useDispatch, useSelector } from 'react-redux'
-import { register, clearError } from '../redux/features/authSlice';
+import { register, clearError, setRegistered } from '../redux/features/authSlice';
 
 // custom components
 import loginStyle from '../styles/register.module.css';
@@ -19,10 +19,18 @@ const Register = () => {
    const router = useRouter();
    const dispatch = useDispatch();
    const authState = useSelector(state => state.auth)
-   const { isLoading, error } = authState
+   const { isLoading, error, isRegistered } = authState
 
-   const handleCloseAlert = () => {
+   useEffect(() => {
+      dispatch(setRegistered(false))
+   })
+
+   const handleCloseError = () => {
       dispatch(clearError())
+   }
+
+   const handleCloseRegister = () => {
+      dispatch(setRegistered(false))
    }
 
    const passwordLength = {
@@ -88,8 +96,15 @@ const Register = () => {
                <h3 className={loginStyle.head}>Register</h3>
                {
                   error && (
-                     <Alert variant="danger" onClose={handleCloseAlert} dismissible>
+                     <Alert variant="danger" onClose={handleCloseError} dismissible>
                         {error}
+                     </Alert>
+                  )
+               }
+               {
+                  isRegistered && (
+                     <Alert variant="success" onClose={handleCloseRegister} dismissible>
+                        Successfully Registered!
                      </Alert>
                   )
                }
@@ -101,11 +116,12 @@ const Register = () => {
                         size="lg"
                         name="fullName"
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         value={formik.values.fullName}
                      />
                   </Form.Group>
                   {
-                     formik.errors.fullName && <small className="text-danger">{formik.errors.fullName}</small>
+                     formik.errors.fullName && formik.touched.fullName && <small className="text-danger">{formik.errors.fullName}</small>
                   }
                   <Form.Group className={loginStyle.formControl}>
                      <Form.Control
@@ -114,11 +130,12 @@ const Register = () => {
                         size="lg"
                         name="email"
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         value={formik.values.email}
                      />
                   </Form.Group>
                   {
-                     formik.errors.email && <small className="text-danger"> {formik.errors.email} </small>
+                     formik.errors.email && formik.touched.email && <small className="text-danger"> {formik.errors.email} </small>
                   }
                   <InputGroup
                      id="buttonEye"
@@ -131,12 +148,13 @@ const Register = () => {
                         size="lg"
                         name="password"
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                         value={formik.values.password}
                      />
                      <i onClick={togglePasswordVisiblity}>{eye}</i>
                   </InputGroup>
                   {
-                     formik.errors.password && <small className="text-danger">{formik.errors.password}</small>
+                     formik.errors.password && formik.touched.password && <small className="text-danger">{formik.errors.password}</small>
                   }
                   <Form.Group className={loginStyle.formControl}>
                      <Form.Check
