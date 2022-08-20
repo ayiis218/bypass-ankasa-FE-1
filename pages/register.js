@@ -21,6 +21,10 @@ const Register = () => {
    const authState = useSelector(state => state.auth)
    const { isLoading, error, isRegistered } = authState
 
+   const handleCloseError = () => {
+      dispatch(clearError())
+   }
+
    const handleCloseRegister = () => {
       dispatch(setRegistered(false))
    }
