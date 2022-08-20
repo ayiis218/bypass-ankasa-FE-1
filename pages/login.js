@@ -52,6 +52,7 @@ const Login = () => {
     },
     validationSchema: LoginSchema,
     onSubmit: (values) => {
+      dispatch(clearError())
       dispatch(login(values))
     }
   })
