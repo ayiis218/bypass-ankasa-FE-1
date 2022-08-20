@@ -98,6 +98,7 @@
   object-fit: cover;
   padding: 3px !important;
   border: 3px solid #2495ff !important;
+  cursor: pointer;
 }
 
 .topDestinations {
