@@ -13,7 +13,9 @@ import back from '../../public/icons/btnback.svg';
 
 import style from './style/result.module.css';
 
-const SearchResult = () => {
+const SearchResult = ({ data, origin, destination }) => {
+   // const file = data.map((item) => item);
+   // console.log(file);
    return (
       <div className={style.section}>
          <div className="container">
@@ -40,7 +42,7 @@ const SearchResult = () => {
                      <div className={style.select}>
                         <div className="col-4">
                            <select name="deptCity" disabled>
-                              <option value="">Medan</option>
+                              <option value="">{origin}</option>
                               <option value="loading">Loading</option>
                               <option value="error">Error</option>
                            </select>
@@ -51,11 +53,11 @@ const SearchResult = () => {
                         </div>
                         <div className="col-4 ms-3">
                            <select name="arrCity" disabled>
-                              <option value="">Tokyo</option>
+                              <option value="">{destination}</option>
                               <option value="loading">Loading</option>
                               <option value="error">Error</option>
                            </select>
-                           <h6 className="ms-1 mt-1">Japan</h6>
+                           <h6 className="ms-1 mt-1">Indonesia</h6>
                         </div>
                      </div>
                   </div>
@@ -95,99 +97,72 @@ const SearchResult = () => {
                            }}
                         ></i> */}
                      </div>
-                     <div className={style.result}>
-                        <div className="row">
-                           <div className="col-3 mt-4">
-                              <Image src={Default} alt="" />
-                           </div>
-                           <div className="col-9">
-                              <div className="row">
-                                 <div className="col-4">
-                                    <div>
-                                       <h2 className={style.departureCity}>
-                                          IDN
-                                       </h2>
-                                       <h6>12.33</h6>
+                     {!data.length ? (
+                        <></>
+                     ) : (
+                        data.map((item, index) => (
+                           <>
+                              <div className={style.result}>
+                                 <div className="row">
+                                    <div className="col-3 mt-4">
+                                       <Image src={Default} alt="" />
                                     </div>
-                                 </div>
-                                 <div className="col-4 mt-3">
-                                    <Image src={flight} alt="" style={{}} />
-                                 </div>
-                                 <div className="col-4">
-                                    <div>
-                                       <h2 className={style.arrivalCity}>
-                                          JPN
-                                       </h2>
-                                       <h6>15.21</h6>
+                                    <div className="col-9">
+                                       <div className="row">
+                                          <div className="col-4">
+                                             <div>
+                                                <h2
+                                                   className={
+                                                      style.departureCity
+                                                   }
+                                                >
+                                                   {item.origin}
+                                                </h2>
+                                                <h6>12.33</h6>
+                                             </div>
+                                          </div>
+                                          <div className="col-3 mt-3">
+                                             <div className="ms-3">
+                                                <Image
+                                                   src={flight}
+                                                   alt=""
+                                                   style={{}}
+                                                />
+                                             </div>
+                                          </div>
+                                          <div className="col-5">
+                                             <div className="ms-1">
+                                                <h2
+                                                   className={style.arrivalCity}
+                                                >
+                                                   {item.destination}
+                                                </h2>
+                                                <h6>15.21</h6>
+                                             </div>
+                                          </div>
+                                          <div className="col-8">
+                                             <h6 className="text-secondary">
+                                                {item.departure}
+                                             </h6>
+                                          </div>
+                                          <div className="col-4">
+                                             <h6
+                                                style={{
+                                                   color: '#2395FF',
+                                                   fontSize: '14px',
+                                                   fontWeight: '500',
+                                                }}
+                                             >
+                                                $ {item.price}
+                                             </h6>
+                                          </div>
+                                       </div>
                                     </div>
-                                 </div>
-                                 <div className="col-8">
-                                    <h6 className="text-secondary">
-                                       3 hours 11 minutes
-                                    </h6>
-                                 </div>
-                                 <div className="col-4">
-                                    <h6
-                                       style={{
-                                          color: '#2395FF',
-                                          fontSize: '14px',
-                                          fontWeight: '500',
-                                       }}
-                                    >
-                                       $ 145,00
-                                    </h6>
                                  </div>
                               </div>
-                           </div>
-                        </div>
-                     </div>
-
-                     <div className={style.result}>
-                        <div className="row">
-                           <div className="col-3 mt-4">
-                              <Image src={airAsia} alt="" />
-                           </div>
-                           <div className="col-9">
-                              <div className="row">
-                                 <div className="col-4">
-                                    <div>
-                                       <h2 className={style.departureCity}>
-                                          IDN
-                                       </h2>
-                                       <h6>12.33</h6>
-                                    </div>
-                                 </div>
-                                 <div className="col-4 mt-3">
-                                    <Image src={flight} alt="" style={{}} />
-                                 </div>
-                                 <div className="col-4">
-                                    <div>
-                                       <h2 className={style.arrivalCity}>
-                                          JPN
-                                       </h2>
-                                       <h6>15.21</h6>
-                                    </div>
-                                 </div>
-                                 <div className="col-8">
-                                    <h6 className=" text-secondary">
-                                       3 hours 11 minutes
-                                    </h6>
-                                 </div>
-                                 <div className="col-4">
-                                    <h6
-                                       style={{
-                                          color: '#2395FF',
-                                          fontSize: '14px',
-                                          fontWeight: '500',
-                                       }}
-                                    >
-                                       $ 145,00
-                                    </h6>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                           </>
+                        ))
+                     )}
                   </div>
                </div>
             </div>
