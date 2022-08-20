@@ -85,12 +85,12 @@ const Login = () => {
           }
           <Form id="formInput" onSubmit={formik.handleSubmit} method="POST">
             <Form.Group className={loginStyle.formControl}>
-              <Form.Control type="email" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Email" size="lg" />
+              <Form.Control type="email" name="email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} placeholder="Email" size="lg" />
             </Form.Group>
             <InputGroup id="buttonEye" className={loginStyle.formControl} />
             
             {
-              formik.errors.email && <small className="d-block text-danger"> {formik.errors.email} </small>
+              formik.errors.email && formik.touched.email && <small className="d-block text-danger"> {formik.errors.email} </small>
             }
             
             <InputGroup className={loginStyle.formControl}>
@@ -99,6 +99,7 @@ const Login = () => {
                 placeholder="Password"
                 name="password"
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 value={formik.values.password}
                 size="lg"
               />
@@ -106,7 +107,7 @@ const Login = () => {
             </InputGroup>
 
             {
-              formik.errors.password && <small className="d-block text-danger"> {formik.errors.password} </small>
+              formik.errors.password && formik.touched.password && <small className="d-block text-danger"> {formik.errors.password} </small>
             }
             
             <div className={loginStyle.button}>

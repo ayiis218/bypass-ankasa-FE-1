@@ -14,11 +14,12 @@ export const login = createAsyncThunk('auth/login', async (user, { rejectWithVal
   }
 })
 
-const register = createAsyncThunk('auth/register', async(newUser, { rejectWithValue }) => {
+export const register = createAsyncThunk('auth/register', async(newUser, { rejectWithValue }) => {
   try {
     const response = await axios.post('https://bypass-ankasa-backend.herokuapp.com/auth/register', newUser)
     return response?.data?.message
   } catch(err) {
+    if (err?.response?.status === 400) return rejectWithValue('User with this email already exist')
     return rejectWithValue(err?.response?.data?.message)
   }
 })
