@@ -19,11 +19,12 @@ export async function getServerSideProps(context) {
          data: response?.data?.data,
          origin: origin,
          destination: destination,
+         class_category: class_category,
       },
    };
 }
 
-function result({ data, origin, destination }) {
+function result({ data, origin, destination, class_category }) {
    return (
       <>
          <Head>
@@ -32,7 +33,12 @@ function result({ data, origin, destination }) {
             <link rel="icon" href="/vector.png" />
          </Head>
          <div className={`d-flex justify-content-center`}>
-            <FormResult data={data} origin={origin} destination={destination} />
+            <FormResult
+               data={data}
+               origin={origin}
+               destination={destination}
+               class_category={class_category}
+            />
          </div>
       </>
    );

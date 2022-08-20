@@ -13,7 +13,7 @@ import back from '../../public/icons/btnback.svg';
 
 import style from './style/result.module.css';
 
-const SearchResult = ({ data, origin, destination }) => {
+const SearchResult = ({ data, origin, destination, class_category }) => {
    const router = useRouter();
    // const file = data.map((item) => item);
    // console.log(file);
@@ -71,7 +71,7 @@ const SearchResult = ({ data, origin, destination }) => {
                      </div>
                      <div className="col-4 mt-2">
                         <small>Class</small>
-                        <h6 className="mt-1">Economy</h6>
+                        <h6 className="mt-1">{class_category}</h6>
                      </div>
                   </div>
                </div>
