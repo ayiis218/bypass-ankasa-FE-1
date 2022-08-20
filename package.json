@@ -11,8 +11,11 @@
    "dependencies": {
       "@fontsource/lato": "^4.5.9",
       "@fontsource/poppins": "^4.5.9",
+      "@reduxjs/toolkit": "^1.8.5",
       "axios": "^0.27.2",
       "bootstrap": "^5.2.0",
+      "formik": "^2.2.9",
+      "jwt-decode": "^3.1.2",
       "moment": "^2.29.4",
       "next": "12.2.5",
       "next-image-zoom": "^1.1.7",
@@ -21,9 +24,12 @@
       "react-bootstrap": "^2.5.0",
       "react-dom": "18.2.0",
       "react-icons": "^4.4.0",
+      "react-redux": "^8.0.2",
       "react-slick": "^0.29.0",
+      "redux-persist": "^6.0.0",
       "slick-carousel": "^1.8.1",
-      "swiper": "^8.3.2"
+      "swiper": "^8.3.2",
+      "yup": "^0.32.11"
    },
    "devDependencies": {
       "eslint": "8.22.0",

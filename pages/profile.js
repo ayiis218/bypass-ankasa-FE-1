@@ -7,8 +7,25 @@ import { AiFillStar } from "react-icons/ai";
 import { FiChevronRight } from "react-icons/fi";
 import { IoMdSettings } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../redux/features/authSlice'
+import { useRouter } from 'next/router'
+// import jwtDecode from "jwt-decode";
 
 const Profile = () => {
+  const router = useRouter()
+  const dispatch = useDispatch()
+  // const authState = useSelector(state => state.auth)
+  // const token = authState?.token
+
+  const handleLogout = () => {
+    dispatch(logout())
+    router.replace('login')
+  }
+
+  // const decoded = jwtDecode(token)
+  // console.log(decoded.email)
+
   return (
     <>
       <div className={`row justify-content-center ${style.bodyWrapper}`}>
@@ -26,7 +43,7 @@ const Profile = () => {
                 </div>
                 <div className={`row text-center ${style.profileImage} my-4`}>
                   <div>
-                    <Image src={imgUser} width={137} height={137} />
+                    <Image src={imgUser} alt="avatar" width={137} height={137} />
                   </div>
                   <div>
                     <h5>Mike Kowalski</h5>
@@ -58,7 +75,7 @@ const Profile = () => {
                       <FiChevronRight color="#979797" size={30} />
                     </div>
                   </div>
-                  <div className="row align-items-center mb-3">
+                  <div className="row align-items-center mb-3" onClick={handleLogout}>
                     <div className="col-2">
                       <MdLogout color="#f24545" size={30} />
                     </div>
