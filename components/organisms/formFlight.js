@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import back from "../../public/icons/btnback.svg";
-import go from "../../public/icons/white-arrow.svg";
 import full from "../../public/icons/fullScreen.svg";
 import style from "./style/flight.module.css";
 import { MdOutlineSwapHoriz } from "react-icons/md";
