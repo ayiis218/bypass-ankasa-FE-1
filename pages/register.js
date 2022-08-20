@@ -21,14 +21,6 @@ const Register = () => {
    const authState = useSelector(state => state.auth)
    const { isLoading, error, isRegistered } = authState
 
-   useEffect(() => {
-      dispatch(setRegistered(false))
-   })
-
-   const handleCloseError = () => {
-      dispatch(clearError())
-   }
-
    const handleCloseRegister = () => {
       dispatch(setRegistered(false))
    }
