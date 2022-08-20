@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import moment from 'moment';
-
+import { useRouter } from 'next/router';
 import airAsia from '../../public/images/airAsia.svg';
 import Default from '../../public/images/garuda.svg';
 import flight from '../../public/icons/flight.svg';
@@ -14,6 +14,7 @@ import back from '../../public/icons/btnback.svg';
 import style from './style/result.module.css';
 
 const SearchResult = ({ data, origin, destination }) => {
+   const router = useRouter();
    // const file = data.map((item) => item);
    // console.log(file);
    return (
@@ -102,7 +103,14 @@ const SearchResult = ({ data, origin, destination }) => {
                      ) : (
                         data.map((item, index) => (
                            <>
-                              <div className={style.result}>
+                              <div
+                                 className={style.result}
+                                 onClick={() =>
+                                    router.push(
+                                       `/detailFlight/${item.ticket_id}`
+                                    )
+                                 }
+                              >
                                  <div className="row">
                                     <div className="col-3 mt-4">
                                        <Image src={Default} alt="" />
