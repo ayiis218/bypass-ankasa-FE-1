@@ -6,6 +6,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import { FiSearch, FiSend } from "react-icons/fi";
 import { BsCheckAll } from "react-icons/bs";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 import Photo from "../../assets/examplePhoto.svg";
 
@@ -21,6 +22,8 @@ import { ref, onValue, set } from "firebase/database";
 const Chat = () => {
 	const router = useRouter();
 	const messagesEndRef = React.useRef(null);
+	const loggedInUserState = useSelector((state) => state.loggedInUser);
+	const { user } = loggedInUserState;
 	const { id } = router.query;
 
 	const [message, setMessage] = useState([]);
@@ -56,7 +59,8 @@ const Chat = () => {
 		set(starCountRef, {
 			message: input,
 			message_time: new Date().getTime(),
-			user_id: 2,
+			user_id: user?.user_id,
+			full_name: user?.full_name,
 			message_status: "sended",
 		});
 		setInput("");
@@ -72,7 +76,7 @@ const Chat = () => {
 				<div className={ChatStyle.content}>
 					{keys?.map((item) => {
 						let current = message[item];
-						if (current?.user_id === 2) {
+						if (current?.user_id === user?.user_id) {
 							return <BubbleReceiver {...current} />;
 						} else {
 							return <BubbleSender {...current} />;
