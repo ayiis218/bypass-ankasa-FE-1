@@ -44,7 +44,7 @@ function flight() {
       });
   };
 
-  console.log("initiateDest", initiateDest, loading);
+  console.log("initiateDest", initiateDest);
 
   return (
     <>
