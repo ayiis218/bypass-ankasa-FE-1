@@ -51,12 +51,12 @@ h3.head {
 
 .text {
   display: flex;
-  align-items: center;
+  /* align-items: center;s */
 }
 
 .timeAndStatus {
   display: grid;
-  align-items: center;
+  /* align-items: center; */
   justify-content: flex-end;
 }
 
