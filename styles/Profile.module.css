@@ -19,7 +19,8 @@
    color: #2395ff;
 }
 
-.profileImage img {
+.profileImage img,
+.profileImage .avatar {
    border-radius: 50%;
    object-fit: cover;
    padding: 8px !important;
