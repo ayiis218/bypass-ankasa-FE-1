@@ -1,14 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import React, { useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaAngleLeft } from "react-icons/fa";
-import { FiSearch, FiSend } from "react-icons/fi";
-import { BsCheckAll } from "react-icons/bs";
+import { FiSend } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-
-import Photo from "../../assets/examplePhoto.svg";
 
 // custom components
 import ChatStyle from "../../styles/ChatPrivate.module.css";
@@ -23,12 +18,21 @@ const Chat = () => {
 	const router = useRouter();
 	const messagesEndRef = React.useRef(null);
 	const loggedInUserState = useSelector((state) => state.loggedInUser);
+	const store = useSelector((state) => state);
+
+	const auth = store?.auth?.token;
 	const { user } = loggedInUserState;
 	const { id } = router.query;
 
 	const [message, setMessage] = useState([]);
 	const [keys, setKeys] = useState([]);
 	const [input, setInput] = useState("");
+
+	React.useEffect(() => {
+		if (!auth) {
+			router.replace("/login");
+		}
+	}, []);
 
 	React.useEffect(() => {
 		const starCountRef = ref(database, `message/${id}`);
