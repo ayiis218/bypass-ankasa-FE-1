@@ -79,7 +79,7 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
                   <div className="row mt-4">
                      <div className={style.mainconten}>
                         <h6 className={`text-secondary ${style.ticket}`}>
-                           2 flight found
+                           {data.length} flight found
                         </h6>
                         <h6 className={style.filter}>Filter</h6>
                         <Image className={style.filterImg} src={filter} />
