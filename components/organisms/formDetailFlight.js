@@ -18,7 +18,7 @@ const formFlight = ({ data }) => {
    const router = useRouter();
    /*    const feature = data?.map((item) => item.facilities);
    const file = feature.map((item) => item);
-   console.log(feature); */
+   console.log(file); */
    return (
       <div className={style.section}>
          <div className="container">
@@ -28,7 +28,7 @@ const formFlight = ({ data }) => {
                      <Image
                         src={back}
                         alt="Back"
-                        onClick={() => router('/result')}
+                        onClick={() => router.push('/search-result')}
                      />
                   </div>
                </div>
@@ -138,7 +138,7 @@ const formFlight = ({ data }) => {
                                     loopFillGroupWithBlank
                                  >
                                     <div className="row mt-3">
-                                       {item.facilities.map((item, index) => (
+                                       {/* {item.facilities.map((item, index) => (
                                           <SwiperSlide key={index}>
                                              <div className="col-5">
                                                 <button className={style.snack}>
@@ -146,8 +146,8 @@ const formFlight = ({ data }) => {
                                                 </button>
                                              </div>
                                           </SwiperSlide>
-                                       ))}
-                                       {/* <SwiperSlide>
+                                       ))} */}
+                                       <SwiperSlide>
                                           <div className="col-5">
                                              <button className={style.snack}>
                                                 {item.facilities[0]}
@@ -155,19 +155,50 @@ const formFlight = ({ data }) => {
                                           </div>
                                        </SwiperSlide>
                                        <SwiperSlide>
-                                          <div className="col-5">
-                                             <button className={style.wifi}>
-                                                {item.facilities[1]}
-                                             </button>
-                                          </div>
+                                          {item.facilities[1] !== undefined ? (
+                                             <div className="col-2">
+                                                <button className={style.wifi}>
+                                                   {item.facilities[1]}
+                                                </button>
+                                             </div>
+                                          ) : (
+                                             <div className="col-5">
+                                                <button className={style.snack}>
+                                                   {item.facilities[0]}
+                                                </button>
+                                             </div>
+                                          )}
                                        </SwiperSlide>
                                        <SwiperSlide>
-                                          <div className="col-2">
-                                             <button className={style.room}>
-                                                {item.facilities[2]}
-                                             </button>
-                                          </div>
-                                       </SwiperSlide> */}
+                                          {item.facilities[2] !== undefined ? (
+                                             <div className="col-2">
+                                                <button className={style.room}>
+                                                   {item.facilities[2]}
+                                                </button>
+                                             </div>
+                                          ) : (
+                                             <div className="col-5">
+                                                <button className={style.snack}>
+                                                   {item.facilities[0]}
+                                                </button>
+                                             </div>
+                                          )}
+                                       </SwiperSlide>
+                                       <SwiperSlide>
+                                          {item.facilities[3] !== undefined ? (
+                                             <div className="col-2">
+                                                <button className={style.room}>
+                                                   {item.facilities[3]}
+                                                </button>
+                                             </div>
+                                          ) : (
+                                             <div className="col-5">
+                                                <button className={style.snack}>
+                                                   {item.facilities[0]}
+                                                </button>
+                                             </div>
+                                          )}
+                                       </SwiperSlide>
                                     </div>
                                  </Swiper>
                               </div>
