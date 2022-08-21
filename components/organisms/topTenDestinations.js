@@ -4,9 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from "next/image";
-import exampleImgDestination from "../../public/images/example-destination.png";
+import { useRouter } from "next/router";
 
 const TopTenDestinations = (props) => {
+  const router = useRouter();
+
   const settings = {
     dots: false,
     infinite: false,
@@ -50,6 +52,10 @@ const TopTenDestinations = (props) => {
     ],
   };
 
+  const navigateToDestination = (city) => {
+    router.push(`/search-flight/${city}`);
+  };
+
   return (
     <>
       <div className="row mt-5">
@@ -62,6 +68,7 @@ const TopTenDestinations = (props) => {
           {props?.data?.map((item, index) => (
             <div
               key={index}
+              onClick={() => navigateToDestination(item.city)}
               className={`card ${style.cardDestinations} text-center`}
             >
               <Image src={item.destination_image} height={70} width={70} />

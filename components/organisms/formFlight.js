@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import back from "../../public/icons/btnback.svg";
-import go from "../../public/icons/white-arrow.svg";
 import full from "../../public/icons/fullScreen.svg";
 import style from "./style/flight.module.css";
 import { MdOutlineSwapHoriz } from "react-icons/md";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const formFlight = (props) => {
   const { inititateDestination } = props;
@@ -14,6 +14,7 @@ const formFlight = (props) => {
   const [destination, setDestination] = useState("");
   const [departure, setDeparture] = useState("");
   const [classCategory, setClassCategory] = useState("");
+  const router = useRouter();
 
   const handleSearchFlight = (e) => {
     e.preventDefault();
@@ -27,7 +28,9 @@ const formFlight = (props) => {
       class_category: classCategory,
     };
 
-    console.log(body);
+    router.push(
+      `/search-result?origin=${body.origin}&destination=${body.destination}&departure=${body.departure}&class_category=${body.class_category}`
+    );
   };
 
   return (

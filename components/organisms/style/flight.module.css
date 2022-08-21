@@ -25,6 +25,10 @@
   position: absolute;
 }
 
+.icon span {
+  cursor: pointer;
+}
+
 .full {
   position: absolute;
   z-index: 2;
