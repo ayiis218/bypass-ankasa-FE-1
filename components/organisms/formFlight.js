@@ -248,7 +248,7 @@ const formFlight = (props) => {
                           <input
                             type="radio"
                             name="radio"
-                            value="first-class"
+                            value="first class"
                             id="radio3"
                             onChange={(e) => setClassCategory(e.target.value)}
                           />
