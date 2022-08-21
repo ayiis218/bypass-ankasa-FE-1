@@ -5,12 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import { store, persistor } from '../redux/app/store'
 import { Provider } from 'react-redux'
 import { PersistGate } from "redux-persist/lib/integration/react";
+import AppWrapper from "../components/layout/AppWrapper"
 
 function MyApp({ Component, pageProps }) {
    return (
       <Provider store={store}>
          <PersistGate loading={null} persistor={persistor}>
-            <Component {...pageProps} />
+            <AppWrapper>
+               <Component {...pageProps} />
+            </AppWrapper>
          </PersistGate>
       </Provider>
    );
