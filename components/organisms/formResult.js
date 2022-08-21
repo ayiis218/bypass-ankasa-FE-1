@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import moment from "moment";
 import { useRouter } from "next/router";
-import airAsia from "../../public/images/airAsia.svg";
 import Default from "../../public/images/garuda.svg";
 import flight from "../../public/icons/flight.svg";
 import arrow from "../../public/icons/arrow2.png";
@@ -11,10 +10,17 @@ import back from "../../public/icons/btnback.svg";
 
 import style from "./style/result.module.css";
 
-const SearchResult = ({ data, origin, destination, class_category }) => {
+const SearchResult = ({
+  data,
+  origin,
+  destination,
+  class_category,
+  departure,
+  child,
+  adult,
+}) => {
   const router = useRouter();
-  // const file = data.map((item) => item);
-  // console.log(file);
+
   return (
     <div className={style.section}>
       <div className="container">
@@ -29,7 +35,7 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
                   type="date"
                   className="form-control"
                   name=""
-                  min={new Date().toISOString().split("T")[0]}
+                  value={departure}
                 />
               </div>
             </div>
@@ -65,7 +71,9 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
             <div className="row">
               <div className="col-8 mt-2">
                 <small className="ms-3">Passenger</small>
-                <h6 className="mt-1 ms-3">2 Child 4 Adult</h6>
+                <h6 className="mt-1 ms-3">
+                  {child} Child {adult} Adult
+                </h6>
               </div>
               <div className="col-4 mt-2">
                 <small>Class</small>
@@ -120,7 +128,7 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
                             </div>
                             <div className="col-8">
                               <h6 className="text-secondary">
-                                {item.departure}
+                                {moment(item.departure).format("YYYY-MM-DD")}
                               </h6>
                             </div>
                             <div className="col-4">

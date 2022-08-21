@@ -19,6 +19,8 @@ function result() {
     destination: router.query.destination,
     departure: router.query.departure,
     class_category: router.query.class_category,
+    child: router.query.child,
+    adult: router.query.adult,
   };
 
   const getFlight = () => {
@@ -47,6 +49,9 @@ function result() {
           origin={body?.origin}
           destination={body?.destination}
           class_category={body?.class_category}
+          departure={body?.departure}
+          child={body?.child}
+          adult={body?.adult}
         />
       </div>
     </>
