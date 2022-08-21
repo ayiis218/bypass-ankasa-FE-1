@@ -4,20 +4,61 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Default from "../../public/images/garuda.svg";
 import flight from "../../public/icons/flight.svg";
 import back from "../../public/icons/btnback.svg";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import style from "./style/detail.module.css";
+import FacilitiesComp from "./facilitiesComp";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-const formFlight = ({ data }) => {
+const formFlight = ({ data, childCount, adultCount, userInfo }) => {
   const router = useRouter();
+  const [isloading, setIsLoading] = useState(false);
 
-  console.log(data);
+  const handleBooking = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const body = {
+      airline_id: data[0]?.airline_id,
+      user_id: userInfo?.user_id,
+      ticket_id: data[0]?.ticket_id,
+      total_price: totalPrice(),
+      child: parseInt(childCount),
+      adult: parseInt(adultCount),
+    };
+
+    axios
+      .post(`https://bypass-ankasa-backend.herokuapp.com/booking`, body)
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+          text: "Booking success, please make payment before 24 hours from now, thanks",
+        }).then((result) => (result.isConfirmed ? router.push("/") : null));
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "failed",
+          text: "Booking failed",
+        });
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const totalPrice = () => {
+    const childPrice = (data[0]?.price / 2) * childCount;
+    const adultPrice = data[0]?.price * adultCount;
+    return childPrice + adultPrice;
+  };
+
+  console.log("user login", userInfo);
+  console.log("data", data);
 
   return (
     <div className={style.section}>
@@ -28,9 +69,9 @@ const formFlight = ({ data }) => {
               <Image src={back} alt="Back" onClick={() => router.back()} />
             </div>
           </div>
-          {data?.map((item) => (
+          {data?.map((item, index) => (
             <>
-              <div className={style.container}>
+              <div key={index} className={style.container}>
                 <div className={style.content}>
                   <div className={style.result}>
                     <div className="row mt-3 ms-2">
@@ -57,14 +98,9 @@ const formFlight = ({ data }) => {
                         <Image
                           src={item.airline_image}
                           alt=""
-                          height={50}
-                          width={70}
+                          height={80}
+                          width={100}
                         />
-                      </div>
-                      <div className="col-6">
-                        <div className="ms-5 mt-4">
-                          <h6>Review</h6>
-                        </div>
                       </div>
                     </div>
                     <div className="row ms-2 mt-3">
@@ -93,7 +129,7 @@ const formFlight = ({ data }) => {
                         <span>
                           <div className="row ms-4">
                             <div className="col-3">
-                              <p>5</p>
+                              <p>{childCount}</p>
                             </div>
                             <div className="col-3">
                               <h6>Child</h6>
@@ -105,7 +141,7 @@ const formFlight = ({ data }) => {
                         <span>
                           <div className="row ms-4">
                             <div className="col-3">
-                              <p>5</p>
+                              <p>{adultCount}</p>
                             </div>
                             <div className="col-3">
                               <h6>Adult</h6>
@@ -120,76 +156,7 @@ const formFlight = ({ data }) => {
                 <div className={style.main}>
                   <div>
                     <h5>Facilities</h5>
-
-                    <Swiper
-                      slidesPerView={2.5}
-                      slidesPerGroup={1}
-                      loopFillGroupWithBlank
-                    >
-                      <div className="row mt-3">
-                        {/* {item.facilities.map((item, index) => (
-                                          <SwiperSlide key={index}>
-                                             <div className="col-5">
-                                                <button className={style.snack}>
-                                                   {item}
-                                                </button>
-                                             </div>
-                                          </SwiperSlide>
-                                       ))} */}
-                        <SwiperSlide>
-                          <div className="col-5">
-                            <button className={style.snack}>
-                              {item.facilities[0]}
-                            </button>
-                          </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                          {item.facilities[1] !== undefined ? (
-                            <div className="col-2">
-                              <button className={style.wifi}>
-                                {item.facilities[1]}
-                              </button>
-                            </div>
-                          ) : (
-                            <div className="col-5">
-                              <button className={style.snack}>
-                                {item.facilities[0]}
-                              </button>
-                            </div>
-                          )}
-                        </SwiperSlide>
-                        <SwiperSlide>
-                          {item.facilities[2] !== undefined ? (
-                            <div className="col-2">
-                              <button className={style.room}>
-                                {item.facilities[2]}
-                              </button>
-                            </div>
-                          ) : (
-                            <div className="col-5">
-                              <button className={style.snack}>
-                                {item.facilities[0]}
-                              </button>
-                            </div>
-                          )}
-                        </SwiperSlide>
-                        <SwiperSlide>
-                          {item.facilities[3] !== undefined ? (
-                            <div className="col-2">
-                              <button className={style.room}>
-                                {item.facilities[3]}
-                              </button>
-                            </div>
-                          ) : (
-                            <div className="col-5">
-                              <button className={style.snack}>
-                                {item.facilities[0]}
-                              </button>
-                            </div>
-                          )}
-                        </SwiperSlide>
-                      </div>
-                    </Swiper>
+                    <FacilitiesComp facilities={item.facilities} />
                   </div>
 
                   <div>
@@ -207,7 +174,7 @@ const formFlight = ({ data }) => {
                                 fontWeight: "500",
                               }}
                             >
-                              $ {item.price}
+                              $ {totalPrice()}
                             </h6>
                           </div>
                         </div>
@@ -216,9 +183,10 @@ const formFlight = ({ data }) => {
                   </div>
                   <button
                     className={style.button}
-                    onClick={() => router.push(`/my-booking/${item.ticket_id}`)}
+                    onClick={handleBooking}
+                    disabled={isloading}
                   >
-                    BOOK FLIGHT
+                    {isloading ? "loading..." : "BOOK FLIGHT"}
                   </button>
                 </div>
               </div>

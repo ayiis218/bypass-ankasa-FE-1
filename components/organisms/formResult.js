@@ -20,8 +20,6 @@ const SearchResult = ({
   child,
   adult,
 }) => {
-  const router = useRouter();
-
   return (
     <div className={style.section}>
       <div className="container">
@@ -111,58 +109,57 @@ const SearchResult = ({
               ) : (
                 data.map((item, index) => (
                   <>
-                    <div
-                      className={style.result}
-                      onClick={() =>
-                        router.push(`/detailFlight/${item.ticket_id}`)
-                      }
-                      key={index}
+                    <Link
+                      href={`/detail-flight?id=${item.ticket_id}&child=${child}&adult=${adult}`}
+                      passHref
                     >
-                      <div className="row">
-                        <div className="col-3 mt-4">
-                          <Image src={Default} alt="" />
-                        </div>
-                        <div className="col-9">
-                          <div className="row">
-                            <div className="col-4">
-                              <div>
-                                <h2 className={style.departureCity}>
-                                  {item.origin}
-                                </h2>
+                      <div className={style.result} key={index}>
+                        <div className="row">
+                          <div className="col-3 mt-4">
+                            <Image src={Default} alt="" />
+                          </div>
+                          <div className="col-9">
+                            <div className="row">
+                              <div className="col-4">
+                                <div>
+                                  <h2 className={style.departureCity}>
+                                    {item.origin}
+                                  </h2>
+                                </div>
                               </div>
-                            </div>
-                            <div className="col-3 mt-3">
-                              <div className="ms-3">
-                                <Image src={flight} alt="" style={{}} />
+                              <div className="col-3 mt-3">
+                                <div className="ms-3">
+                                  <Image src={flight} alt="" style={{}} />
+                                </div>
                               </div>
-                            </div>
-                            <div className="col-5">
-                              <div className="ms-1">
-                                <h2 className={style.arrivalCity}>
-                                  {item.destination}
-                                </h2>
+                              <div className="col-5">
+                                <div className="ms-1">
+                                  <h2 className={style.arrivalCity}>
+                                    {item.destination}
+                                  </h2>
+                                </div>
                               </div>
-                            </div>
-                            <div className="col-8">
-                              <h6 className="text-secondary">
-                                {moment(item.departure).format("YYYY-MM-DD")}
-                              </h6>
-                            </div>
-                            <div className="col-4">
-                              <h6
-                                style={{
-                                  color: "#2395FF",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                }}
-                              >
-                                $ {item.price}
-                              </h6>
+                              <div className="col-8">
+                                <h6 className="text-secondary">
+                                  {moment(item.departure).format("YYYY-MM-DD")}
+                                </h6>
+                              </div>
+                              <div className="col-4">
+                                <h6
+                                  style={{
+                                    color: "#2395FF",
+                                    fontSize: "14px",
+                                    fontWeight: "500",
+                                  }}
+                                >
+                                  $ {item.price}
+                                </h6>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </>
                 ))
               )}

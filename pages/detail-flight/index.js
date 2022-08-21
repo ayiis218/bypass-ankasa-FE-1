@@ -1,15 +1,17 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import FormDetail from "../../components/organisms/formDetailFlight";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
+import FormDetailFlight from "../../components/organisms/formDetailFlight";
 
-function detail() {
+function DetailFlight() {
   const loggedInUserState = useSelector((state) => state.loggedInUser);
   const { user } = loggedInUserState;
   const router = useRouter();
   const idTicket = router.query.id;
+  const childCount = router.query.child;
+  const adultCount = router.query.adult;
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -38,10 +40,15 @@ function detail() {
         <link rel="icon" href="/vector.png" />
       </Head>
       <div className={`d-flex justify-content-center`}>
-        <FormDetail data={data} />
+        <FormDetailFlight
+          data={data}
+          childCount={childCount}
+          adultCount={adultCount}
+          userInfo={user}
+        />
       </div>
     </>
   );
 }
 
-export default detail;
+export default DetailFlight;
