@@ -4,9 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Image from "next/image";
-import exampleImgDestination from "../../public/images/example-destination.png";
+import { useRouter } from "next/router";
 
-const TopTenDestinations = () => {
+const TopTenDestinations = (props) => {
+  const router = useRouter();
+
   const settings = {
     dots: false,
     infinite: false,
@@ -43,11 +45,15 @@ const TopTenDestinations = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 4.5,
+          slidesToShow: 3.8,
           slidesToScroll: 4,
         },
       },
     ],
+  };
+
+  const navigateToDestination = (city) => {
+    router.push(`/search-flight/${city}`);
   };
 
   return (
@@ -59,36 +65,18 @@ const TopTenDestinations = () => {
       </div>
       <div id="topTenDestinations" className="row mt-2 mb-4">
         <Slider {...settings}>
-          <div className={`card ${style.cardDestinations} text-center`}>
-            <Image src={exampleImgDestination} height={70} width={70} />
-            <div className="card-body">
-              <p className="card-text text-center">PARIS</p>
+          {props?.data?.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => navigateToDestination(item.city)}
+              className={`card ${style.cardDestinations} text-center`}
+            >
+              <Image src={item.destination_image} height={70} width={70} />
+              <div className="card-body">
+                <p className="card-text text-center">{item.city}</p>
+              </div>
             </div>
-          </div>
-          <div className={`card ${style.cardDestinations} text-center`}>
-            <Image src={exampleImgDestination} height={70} width={70} />
-            <div className="card-body">
-              <p className="card-text text-center">PARIS</p>
-            </div>
-          </div>
-          <div className={`card ${style.cardDestinations} text-center`}>
-            <Image src={exampleImgDestination} height={70} width={70} />
-            <div className="card-body">
-              <p className="card-text text-center">PARIS</p>
-            </div>
-          </div>
-          <div className={`card ${style.cardDestinations} text-center`}>
-            <Image src={exampleImgDestination} height={70} width={70} />
-            <div className="card-body">
-              <p className="card-text text-center">PARIS</p>
-            </div>
-          </div>
-          <div className={`card ${style.cardDestinations} text-center`}>
-            <Image src={exampleImgDestination} height={70} width={70} />
-            <div className="card-body">
-              <p className="card-text text-center">PARIS</p>
-            </div>
-          </div>
+          ))}
         </Slider>
       </div>
     </>
