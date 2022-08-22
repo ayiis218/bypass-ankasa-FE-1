@@ -26,6 +26,7 @@ function Admin() {
 		destination: "",
 		price: "",
 		departure: "",
+		departure_time: "",
 		stock: "",
 	});
 	const [show, setShow] = useState(false);
@@ -170,6 +171,11 @@ function Admin() {
 							</div>
 
 							<div className="mb-3">
+								<label className="form-label">Time</label>
+								<input type="text" className="form-control" placeholder="07:00" onChange={(e) => setData({ ...data, departure_time: e.target.value })} value={data?.departure_time} />
+							</div>
+
+							<div className="mb-3">
 								<label className="form-label">Stock</label>
 								<input type="number" className="form-control" min={0} max={200} placeholder="Stock" onChange={(e) => setData({ ...data, stock: e.target.value })} />
 							</div>
@@ -196,6 +202,7 @@ function Admin() {
 								<th scope="col">Origin</th>
 								<th scope="col">Destination</th>
 								<th scope="col">Date</th>
+								<th scope="col">Time</th>
 								<th scope="col">Price</th>
 								<th scope="col">Stock</th>
 							</tr>
@@ -218,7 +225,8 @@ function Admin() {
 												<td>{item?.class_category}</td>
 												<td>{item?.origin}</td>
 												<td>{item?.destination}</td>
-												<td>{moment(item?.departure).format("YYYY-MM-DD HH:mm")}</td>
+												<td>{moment(item?.departure).format("YYYY-MM-DD")}</td>
+												<td>{moment(item?.departure_time, "HH:mm").format("HH:mm")}</td>
 												<td>{currency}</td>
 												<td>{item?.stock}</td>
 											</tr>
@@ -228,7 +236,7 @@ function Admin() {
 							) : (
 								<>
 									<tr>
-										<td colSpan={9}>
+										<td colSpan={10}>
 											<Stack spacing={1}>
 												<Skeleton variant="rectangular" width={"100%"} height={60} />
 											</Stack>
