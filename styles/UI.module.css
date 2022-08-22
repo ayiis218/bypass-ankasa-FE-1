@@ -1,0 +1,17 @@
+.baseButton {
+  --clr-primary: #2395ff;
+  --width: 9.375rem;
+  --height: 3.125rem;
+
+  background-color: var(--clr-primary);
+  width: var(--width);
+  height: var(--height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
