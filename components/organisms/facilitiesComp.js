@@ -86,10 +86,8 @@ const FacilitiesComp = ({ facilities }) => {
       <Swiper slidesPerView={2.5} slidesPerGroup={1} loopFillGroupWithBlank>
         <div className="row mt-3">
           {facilities?.map((item, index) => (
-            <SwiperSlide>
-              <div key={index} className="col-5">
-                {facilitiesCheck(item)}
-              </div>
+            <SwiperSlide key={index}>
+              <div className="col-5">{facilitiesCheck(item)}</div>
             </SwiperSlide>
           ))}
         </div>

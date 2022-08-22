@@ -76,6 +76,7 @@ const TrendingDestinations = (props) => {
                   className={style.destinationsImage}
                   src={item.destination_image}
                   layout="fill"
+                  alt=""
                 />
                 <div className={style.totalAirlines}>
                   <span>{item.count} Airlines</span>

@@ -21,7 +21,7 @@ const Welcome = () => {
     <>
       <Head></Head>
       <section id="styleButton" className={loginStyle.main}>
-        <Image src={Blue} height={250} width={250} />
+        <Image src={Blue} height={250} width={250} alt="" />
         <Slider className={loginStyle.main} {...settings}>
           <div className={loginStyle.main}>
             <h3 className={loginStyle.head}>Get Started</h3>

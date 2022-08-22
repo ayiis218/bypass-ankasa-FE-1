@@ -71,7 +71,12 @@ const TopTenDestinations = (props) => {
               onClick={() => navigateToDestination(item.city)}
               className={`card ${style.cardDestinations} text-center`}
             >
-              <Image src={item.destination_image} height={70} width={70} />
+              <Image
+                src={item.destination_image}
+                height={70}
+                width={70}
+                alt=""
+              />
               <div className="card-body">
                 <p className="card-text text-center">{item.city}</p>
               </div>
