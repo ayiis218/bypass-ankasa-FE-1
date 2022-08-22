@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import back from "../../public/icons/btnback.svg";
@@ -7,6 +8,7 @@ import { MdOutlineSwapHoriz } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import NoDataComp from "./noDataComp";
+import Swal from "sweetalert2";
 
 const formFlight = (props) => {
   const { inititateDestination } = props;
@@ -15,27 +17,48 @@ const formFlight = (props) => {
   const [destination, setDestination] = useState("");
   const [departure, setDeparture] = useState("");
   const [classCategory, setClassCategory] = useState("");
+  const [childCount, setChildCount] = useState(0);
+  const [adultCount, setAdultCount] = useState(0);
   const router = useRouter();
 
   const handleSearchFlight = (e) => {
     e.preventDefault();
-    if (destination === "") {
-      return (destination = inititateDestination?.city);
-    }
     const body = {
       origin,
       destination,
       departure,
       class_category: classCategory,
+      child: childCount,
+      adult: adultCount,
     };
 
-    router.push(
-      `/search-result?origin=${body.origin}&destination=${body.destination}&departure=${body.departure}&class_category=${body.class_category}`
-    );
+    if (destination === "") {
+      return (destination = inititateDestination?.city);
+    }
+
+    if (departure === "") {
+      Swal.fire({
+        icon: "warning",
+        text: "Please insert date of departure flight",
+      });
+    } else if (childCount == 0 && adultCount == 0) {
+      Swal.fire({
+        icon: "warning",
+        text: "Please insert total child and adult",
+      });
+    } else if (classCategory === "") {
+      Swal.fire({
+        icon: "warning",
+        text: "Please insert class category",
+      });
+    } else {
+      router.push(
+        `/search-result?origin=${body.origin}&destination=${body.destination}&departure=${body.departure}&class_category=${body.class_category}&child=${body.child}&adult=${body.adult}`
+      );
+    }
   };
 
   console.log("inititateDestination", inititateDestination);
-  console.log(!inititateDestination?.destination_id);
 
   const renderJsx = () => {
     if (!inititateDestination?.destination_id) {
@@ -71,7 +94,7 @@ const formFlight = (props) => {
                   </div>
                 </div>
                 <div className={style.container}>
-                  <form>
+                  <form onSubmit={handleSearchFlight}>
                     <div className={style.content}>
                       <div className={style.box}>
                         <div className="row align-items-center">
@@ -166,29 +189,39 @@ const formFlight = (props) => {
                         />
                       </div>
                     </div>
-                    {/* <div className="search-person mt-4 text-secondary">
-                <div>How many person?</div>
-                <div className={`mt-1 ${style.select}`}>
-                  <select className="form-check">
-                    <option value="null" disabled="disabled" selected>
-                      Child
-                    </option>
-                    <option value="1">1 Child</option>
-                    <option value="2">2 Child</option>
-                    <option value="3">3 Child</option>
-                    <option value="4">4 Child</option>
-                  </select>
-                  <select className="form-check">
-                    <option value="null" disabled="disabled" selected>
-                      Adult
-                    </option>
-                    <option value="1">1 Adult</option>
-                    <option value="2">2 Adult</option>
-                    <option value="3">3 Adult</option>
-                    <option value="4">4 Adult</option>
-                  </select>
-                </div>
-              </div> */}
+                    <div className="search-person mt-4 text-secondary">
+                      <div>How many person?</div>
+                      <div className={`mt-1 ${style.select}`}>
+                        <select
+                          className="form-select"
+                          id="floatingSelect"
+                          aria-label="Floating label select example"
+                          onChange={(e) => setChildCount(e.target.value)}
+                        >
+                          <option disabled selected>
+                            Child
+                          </option>
+                          <option value={1}>1 Child</option>
+                          <option value={2}>2 Child</option>
+                          <option value={3}>3 Child</option>
+                          <option value={4}>4 Child</option>
+                        </select>
+                        <select
+                          className="form-select"
+                          id="floatingSelect"
+                          aria-label="Floating label select example"
+                          onChange={(e) => setAdultCount(e.target.value)}
+                        >
+                          <option disabled selected>
+                            Adult
+                          </option>
+                          <option value={1}>1 Adult</option>
+                          <option value={2}>2 Adult</option>
+                          <option value={3}>3 Adult</option>
+                          <option value={4}>4 Adult</option>
+                        </select>
+                      </div>
+                    </div>
                     <div className="mt-5 text-secondary">
                       <div>Which class do you want?</div>
                       <div className={style.radio}>
@@ -216,7 +249,7 @@ const formFlight = (props) => {
                           <input
                             type="radio"
                             name="radio"
-                            value="first-class"
+                            value="first class"
                             id="radio3"
                             onChange={(e) => setClassCategory(e.target.value)}
                           />
@@ -224,11 +257,7 @@ const formFlight = (props) => {
                         </div>
                       </div>
                     </div>
-                    <button
-                      className={`mt-4 ${style.button}`}
-                      onClick={handleSearchFlight}
-                      type="submit"
-                    >
+                    <button className={`mt-4 ${style.button}`} type="submit">
                       Search Flight
                     </button>
                   </form>
