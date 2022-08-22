@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/features/authSlice";
 import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
+import Link from 'next/link'
 
 const Profile = () => {
 	const router = useRouter();
@@ -36,7 +37,9 @@ const Profile = () => {
 											<span className={style.titleProfile}>Profile</span>
 										</div>
 										<div className="col-6 text-end">
-											<span className={style.titleEdit}>Edit</span>
+											<Link href="profile/edit" passHref>
+												<a className={style.titleEdit}>Edit</a>
+											</Link>
 										</div>
 									</div>
 									<div className={`row text-center ${style.profileImage} my-4`}>
