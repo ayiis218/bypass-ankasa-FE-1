@@ -11,13 +11,19 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import moment from "moment";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
 function Admin() {
+	const router = useRouter();
 	const [dataBook, setDataBook] = useState({});
-	const [isLoading, setIsLoading] = useState(true);
+
+	// const selector = useSelector((state) => state.loggedInUser);
+	// const { user } = selector;
+
 	useEffect(() => {
 		axios
 			.get(`https://bypass-ankasa-backend.herokuapp.com/booking/detail`)
@@ -95,9 +101,10 @@ function Admin() {
 							</Offcanvas.Header>
 							<Offcanvas.Body>
 								<Nav className="justify-content-end flex-grow-1 pe-3">
-									<Nav.Link href="#action1">Flights</Nav.Link>
-									<Nav.Link href="#action2">Tickets</Nav.Link>
-									<Nav.Link href="#action2">Approval Payment</Nav.Link>
+									<Nav.Link href="admin">Approval Payment</Nav.Link>
+									{/* <Nav.Link href="admin/flight">Flights</Nav.Link> */}
+									<Nav.Link href="admin/tickets">Tickets</Nav.Link>
+									<Nav.Link href="/profile">Profile</Nav.Link>
 								</Nav>
 							</Offcanvas.Body>
 						</Navbar.Offcanvas>
@@ -157,36 +164,6 @@ function Admin() {
 									</tr>
 								</>
 							)}
-							{/* <tr>
-								<th scope="row">2</th>
-								<td>Rezha Riansyah R.</td>
-								<td>IDN to JPN</td>
-								<td>Monday, 20 July ‘20 - 12:33</td>
-								<td>Waiting</td>
-								<td>
-									<button type="button" className="btn btn-primary btn-sm" style={{ marginRight: "8px" }}>
-										Approve
-									</button>
-									<button type="button" className="btn btn-danger btn-sm">
-										Cancel
-									</button>
-								</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td>Rezha Riansyah R.</td>
-								<td>IDN to JPN</td>
-								<td>Monday, 20 July ‘20 - 12:33</td>
-								<td>Waiting</td>
-								<td>
-									<button type="button" className="btn btn-primary btn-sm" style={{ marginRight: "8px" }}>
-										Approve
-									</button>
-									<button type="button" className="btn btn-danger btn-sm">
-										Cancel
-									</button>
-								</td>
-							</tr> */}
 						</tbody>
 					</table>
 				</div>

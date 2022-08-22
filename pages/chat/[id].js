@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaAngleLeft } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 // custom components
 import ChatStyle from "../../styles/ChatPrivate.module.css";
@@ -59,21 +61,25 @@ const Chat = () => {
 	const handleSend = (e) => {
 		e.preventDefault();
 
-		const starCountRef = ref(database, `message/${id}/${new Date().getTime()}`);
-		set(starCountRef, {
-			message: input,
-			message_time: new Date().getTime(),
-			user_id: user?.user_id,
-			full_name: user?.full_name,
-			message_status: "sended",
-		});
-		setInput("");
+		if (input) {
+			const starCountRef = ref(database, `message/${id}/${new Date().getTime()}`);
+			set(starCountRef, {
+				message: input,
+				message_time: new Date().getTime(),
+				user_id: user?.user_id,
+				full_name: user?.full_name,
+				message_status: "sended",
+			});
+			setInput("");
+		}
 	};
 	return (
 		<>
 			<Container>
 				<div className={ChatStyle.header}>
-					<FaAngleLeft size={30} color="#fff" />
+					<Link href="/chat" passHref>
+						<FaAngleLeft size={30} color="#fff" style={{ cursor: "pointer" }} />
+					</Link>
 					<h4>Room: {id}</h4>
 				</div>
 
@@ -91,7 +97,7 @@ const Chat = () => {
 
 				<div className={ChatStyle.input}>
 					<form className="d-flex" onSubmit={handleSend}>
-						<input type="text" className="form-control rounded-0" id="text" placeholder="Insert your message here..." value={input} onChange={(e) => setInput(e.target.value)} />
+						<input type="text" className="form-control rounded-0" id="text" placeholder="Insert your message here..." value={input} onChange={(e) => setInput(e.target.value)} autoComplete="off" />
 						<button type="submit" className={`btn btn-light d-flex align-items-center rounded-0`} style={{ borderRadius: 0 }}>
 							<FiSend className="me-2" />
 							Send

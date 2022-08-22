@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import axios from "axios";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
@@ -44,7 +46,7 @@ function flight() {
       });
   };
 
-  console.log("initiateDest", initiateDest, loading);
+  console.log("initiateDest", initiateDest);
 
   return (
     <>
