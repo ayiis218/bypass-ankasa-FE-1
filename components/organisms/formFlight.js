@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import back from "../../public/icons/btnback.svg";

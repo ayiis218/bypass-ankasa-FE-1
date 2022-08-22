@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import axios from "axios";

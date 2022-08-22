@@ -10,6 +10,9 @@
    height: 110vh;
 }
 
+.countryCode {
+   cursor: pointer;
+}
 .countryCode h3 {
    display: inline;
 }
