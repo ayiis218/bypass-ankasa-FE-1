@@ -11,13 +11,19 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import moment from "moment";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
 function Admin() {
+	const router = useRouter();
 	const [dataBook, setDataBook] = useState({});
-	const [isLoading, setIsLoading] = useState(true);
+
+	// const selector = useSelector((state) => state.loggedInUser);
+	// const { user } = selector;
+
 	useEffect(() => {
 		axios
 			.get(`https://bypass-ankasa-backend.herokuapp.com/booking/detail`)
@@ -98,6 +104,7 @@ function Admin() {
 									<Nav.Link href="admin">Approval Payment</Nav.Link>
 									{/* <Nav.Link href="admin/flight">Flights</Nav.Link> */}
 									<Nav.Link href="admin/tickets">Tickets</Nav.Link>
+									<Nav.Link href="/profile">Profile</Nav.Link>
 								</Nav>
 							</Offcanvas.Body>
 						</Navbar.Offcanvas>
