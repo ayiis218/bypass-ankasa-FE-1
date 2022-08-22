@@ -12,11 +12,14 @@ import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import moment from "moment";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
 function Admin() {
+	const router = useRouter();
 	const [tickets, setTicket] = useState([]);
 	const [airlines, setAirlines] = useState([]);
 	const [destination, setDestination] = useState([]);
@@ -30,6 +33,9 @@ function Admin() {
 		stock: "",
 	});
 	const [show, setShow] = useState(false);
+
+	// const selector = useSelector((state) => state);
+	// const { user } = selector?.loggedInUser;
 
 	useEffect(() => {
 		axios
@@ -94,6 +100,7 @@ function Admin() {
 									<Nav.Link href="/admin">Approval Payment</Nav.Link>
 									{/* <Nav.Link href="admin/flight">Flights</Nav.Link> */}
 									<Nav.Link href="/admin/tickets">Tickets</Nav.Link>
+									<Nav.Link href="/profile">Profile</Nav.Link>
 								</Nav>
 							</Offcanvas.Body>
 						</Navbar.Offcanvas>
