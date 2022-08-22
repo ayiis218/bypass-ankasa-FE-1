@@ -1,0 +1,11 @@
+.fixHeight {
+  min-height: 100vh;
+}
+
+.content img {
+  object-fit: cover;
+}
+
+.content span {
+  color: blue;
+}

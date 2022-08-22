@@ -13,7 +13,7 @@ const Welcome = () => {
       <Head></Head>
       <Container className={`col-md-4 ${loginStyle.body}`}>
         <div className={loginStyle.main}>
-          <Image src={White} height={250} width={250} />
+          <Image src={White} height={250} width={250} alt="" />
           <h3 className={loginStyle.head}>Ankasa Ticketing</h3>
         </div>
       </Container>

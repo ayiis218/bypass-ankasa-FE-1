@@ -62,9 +62,6 @@ const TrendingDestinations = (props) => {
         <div className="col-7">
           <p className={style.trendingTitle}>Trending destinations</p>
         </div>
-        <div className="col-5 text-end">
-          <p className={style.viewAll}>View all</p>
-        </div>
       </div>
       <div className="row mt-2">
         <Slider {...settings}>
@@ -79,6 +76,7 @@ const TrendingDestinations = (props) => {
                   className={style.destinationsImage}
                   src={item.destination_image}
                   layout="fill"
+                  alt=""
                 />
                 <div className={style.totalAirlines}>
                   <span>{item.count} Airlines</span>

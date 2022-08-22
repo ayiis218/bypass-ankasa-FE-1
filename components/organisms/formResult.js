@@ -1,22 +1,25 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Image from "next/image";
 import moment from "moment";
 import { useRouter } from "next/router";
-import airAsia from "../../public/images/airAsia.svg";
 import Default from "../../public/images/garuda.svg";
 import flight from "../../public/icons/flight.svg";
 import arrow from "../../public/icons/arrow2.png";
-import filter from "../../public/icons/filter.svg";
 import back from "../../public/icons/btnback.svg";
+import logoNotFound from "../../assets/illustration.png";
 
 import style from "./style/result.module.css";
+import Link from "next/link";
 
-const SearchResult = ({ data, origin, destination, class_category }) => {
-  const router = useRouter();
-  // const file = data.map((item) => item);
-  // console.log(file);
+const SearchResult = ({
+  data,
+  origin,
+  destination,
+  class_category,
+  departure,
+  child,
+  adult,
+}) => {
   return (
     <div className={style.section}>
       <div className="container">
@@ -24,14 +27,16 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
           <div className={style.header}>
             <div className="row mt-3 m-2">
               <div className="col-6 d-flex justify-content-start">
-                <Image src={back} alt="Back" />
+                <Link href={`/search-flight/${destination}`} passHref>
+                  <Image src={back} alt="Back" />
+                </Link>
               </div>
               <div className="col-6 d-flex justify-content-end">
                 <input
                   type="date"
                   className="form-control"
                   name=""
-                  min={new Date().toISOString().split("T")[0]}
+                  value={departure}
                 />
               </div>
             </div>
@@ -50,7 +55,7 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
                   <h6 className="ms-1 mt-1">Indonesia</h6>
                 </div>
                 <div className="col-2 ms-5">
-                  <Image className={style.imagePlane} src={arrow} />
+                  <Image className={style.imagePlane} src={arrow} alt="" />
                 </div>
                 <div className="col-4 ms-3">
                   <select name="arrCity" disabled>
@@ -67,7 +72,9 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
             <div className="row">
               <div className="col-8 mt-2">
                 <small className="ms-3">Passenger</small>
-                <h6 className="mt-1 ms-3">2 Child 4 Adult</h6>
+                <h6 className="mt-1 ms-3">
+                  {child} Child {adult} Adult
+                </h6>
               </div>
               <div className="col-4 mt-2">
                 <small>Class</small>
@@ -79,67 +86,85 @@ const SearchResult = ({ data, origin, destination, class_category }) => {
             <div className="row mt-4">
               <div className={style.mainconten}>
                 <h6 className={`text-secondary ${style.ticket}`}>
-                  2 flight found
+                  {data?.length} flight found
                 </h6>
-                <h6 className={style.filter}>Filter</h6>
-                <Image className={style.filterImg} src={filter} />
               </div>
-              {!data.length ? (
-                <></>
+              {!data?.length ? (
+                <>
+                  <div className="row justify-content-center mt-3">
+                    <div className="col-7 text-center">
+                      <Image
+                        src={logoNotFound}
+                        height={500}
+                        width={500}
+                        alt="logo not found"
+                      />
+                      <p className="text-secondary">
+                        Sorry, there is no flight schedule that you are looking
+                        for
+                      </p>
+                    </div>
+                  </div>
+                </>
               ) : (
                 data.map((item, index) => (
                   <>
-                    <div
-                      className={style.result}
-                      onClick={() =>
-                        router.push(`/detailFlight/${item.ticket_id}`)
-                      }
+                    <Link
+                      href={`/detail-flight?id=${item.ticket_id}&child=${child}&adult=${adult}`}
+                      passHref
                     >
-                      <div className="row">
-                        <div className="col-3 mt-4">
-                          <Image src={Default} alt="" />
-                        </div>
-                        <div className="col-9">
-                          <div className="row">
-                            <div className="col-4">
-                              <div>
-                                <h2 className={style.departureCity}>
-                                  {item.origin}
-                                </h2>
+                      <div className={style.result} key={index}>
+                        <div className="row">
+                          <div className="col-3 mt-4">
+                            <Image
+                              src={item.airline_image}
+                              height={100}
+                              width={150}
+                              alt=""
+                            />
+                          </div>
+                          <div className="col-9">
+                            <div className="row">
+                              <div className="col-4">
+                                <div>
+                                  <h2 className={style.departureCity}>
+                                    {item.origin}
+                                  </h2>
+                                </div>
                               </div>
-                            </div>
-                            <div className="col-3 mt-3">
-                              <div className="ms-3">
-                                <Image src={flight} alt="" style={{}} />
+                              <div className="col-3 mt-3">
+                                <div className="ms-3">
+                                  <Image src={flight} alt="" style={{}} />
+                                </div>
                               </div>
-                            </div>
-                            <div className="col-5">
-                              <div className="ms-1">
-                                <h2 className={style.arrivalCity}>
-                                  {item.destination}
-                                </h2>
+                              <div className="col-5">
+                                <div className="ms-1">
+                                  <h2 className={style.arrivalCity}>
+                                    {item.destination}
+                                  </h2>
+                                </div>
                               </div>
-                            </div>
-                            <div className="col-8">
-                              <h6 className="text-secondary">
-                                {item.departure}
-                              </h6>
-                            </div>
-                            <div className="col-4">
-                              <h6
-                                style={{
-                                  color: "#2395FF",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                }}
-                              >
-                                $ {item.price}
-                              </h6>
+                              <div className="col-8">
+                                <h6 className="text-secondary">
+                                  {moment(item.departure).format("YYYY-MM-DD")}
+                                </h6>
+                              </div>
+                              <div className="col-4">
+                                <h6
+                                  style={{
+                                    color: "#2395FF",
+                                    fontSize: "14px",
+                                    fontWeight: "500",
+                                  }}
+                                >
+                                  Rp. {item.price}
+                                </h6>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </>
                 ))
               )}
