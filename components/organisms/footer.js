@@ -15,10 +15,12 @@ const Footer = () => {
     >
       <div className="col-4 text-center">
         <Link href="/my-booking" passHref>
-          <TbCalendarTime
-            size={27}
-            color={router.pathname == "/my-booking" ? "#2495FF" : "#979797"}
-          />
+          <a>
+            <TbCalendarTime
+              size={27}
+              color={router.pathname == "/my-booking" ? "#2495FF" : "#979797"}
+            />
+          </a>
         </Link>
         <br />
         <small
@@ -31,15 +33,19 @@ const Footer = () => {
       </div>
       <div className={`col-4 text-center ${style.goFlight}`}>
         <Link href="/" passHref>
-          <RiCompass3Fill size={55} color="white" />
+          <a>
+            <RiCompass3Fill size={55} color="white" />
+          </a>
         </Link>
       </div>
       <div className="col-4 text-center">
         <Link href="/profile" passHref>
-          <CgProfile
-            size={28}
-            color={router.pathname == "/profile" ? "#2495FF" : "#979797"}
-          />
+          <a>
+            <CgProfile
+              size={28}
+              color={router.pathname == "/profile" ? "#2495FF" : "#979797"}
+            />
+          </a>
         </Link>
         <br />
         <small

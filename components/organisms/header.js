@@ -15,12 +15,16 @@ const Header = (props) => {
           <div className={`col-6 text-end ${style.notification}`}>
             <div className={style.message}>
               <Link href={"/chat"} passHref>
-                <FiMail size={24} color="#595959" />
+                <a>
+                  <FiMail size={24} color="#595959" />
+                </a>
               </Link>
             </div>
             <div>
               <Link href={"/notification"} passHref>
-                <VscBell size={24} color="#595959" />
+                <a>
+                  <VscBell size={24} color="#595959" />
+                </a>
               </Link>
             </div>
           </div>
