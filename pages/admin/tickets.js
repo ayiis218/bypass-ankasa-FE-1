@@ -29,13 +29,17 @@ function Admin() {
 		destination: "",
 		price: "",
 		departure: "",
-		departure_time: "",
+		departure_time: "07:00",
 		stock: "",
 	});
 	const [show, setShow] = useState(false);
 
-	// const selector = useSelector((state) => state);
-	// const { user } = selector?.loggedInUser;
+	const { auth } = useSelector((state) => state);
+	useEffect(() => {
+		if (!auth.token & (auth.isImportant === false)) {
+			router.replace("/admin/login");
+		}
+	});
 
 	useEffect(() => {
 		axios
@@ -126,7 +130,7 @@ function Admin() {
 							<div className="mb-3">
 								<label className="form-label">Airlines</label>
 
-								<select className="form-select" aria-label="Default select example" onChange={(e) => setData({ ...data, airline_id: parseInt(e.target.value) })}>
+								<select className="form-select" aria-label="Default select example" onChange={(e) => setData({ ...data, airline_id: parseInt(e.target.value) })} required>
 									<option selected>Open this select menu</option>
 									{airlines.length
 										? airlines?.map((item) => {
@@ -149,7 +153,7 @@ function Admin() {
 
 							<div className="mb-3">
 								<label className="form-label">Destination</label>
-								<select className="form-select" aria-label="Default select example" onChange={(e) => setData({ ...data, destination: e.target.value })}>
+								<select className="form-select" required aria-label="Default select example" onChange={(e) => setData({ ...data, destination: e.target.value })}>
 									<option selected>Open this select menu</option>
 									{destination.length
 										? destination?.map((item) => {
@@ -167,24 +171,42 @@ function Admin() {
 
 							<div className="mb-3">
 								<label className="form-label">Price</label>
-								<input type="text" className="form-control" id="exampleInputEmail1" placeholder="Rp. 800.000" value={data?.price} onChange={(e) => setData({ ...data, price: e.target.value })} />
+								<input
+									type="text"
+									className="form-control"
+									required
+									id="exampleInputEmail1"
+									placeholder="Rp. 800.000"
+									value={data?.price}
+									onChange={(e) => setData({ ...data, price: e.target.value })}
+									autoComplete="off"
+								/>
 							</div>
 
 							<div className="mb-3">
 								<label className="form-label">Departure</label>
 								<div>
-									<input type="date" className="form-control" name="" id="" min={new Date().toISOString().split("T")[0]} onChange={(e) => setData({ ...data, departure: e.target.value })} />
+									<input type="date" className="form-control" required name="" id="" min={new Date().toISOString().split("T")[0]} onChange={(e) => setData({ ...data, departure: e.target.value })} />
 								</div>
 							</div>
 
 							<div className="mb-3">
 								<label className="form-label">Time</label>
-								<input type="text" className="form-control" placeholder="07:00" onChange={(e) => setData({ ...data, departure_time: e.target.value })} value={data?.departure_time} />
+								<input
+									type="time"
+									className="form-control"
+									placeholder="07:00"
+									required
+									onChange={(e) => {
+										setData({ ...data, departure_time: e.target.value });
+									}}
+									value={data?.departure_time}
+								/>
 							</div>
 
 							<div className="mb-3">
 								<label className="form-label">Stock</label>
-								<input type="number" className="form-control" min={0} max={200} placeholder="Stock" onChange={(e) => setData({ ...data, stock: e.target.value })} />
+								<input type="number" className="form-control" required min={0} max={200} placeholder="Stock" onChange={(e) => setData({ ...data, stock: e.target.value })} />
 							</div>
 						</Modal.Body>
 						<Modal.Footer>

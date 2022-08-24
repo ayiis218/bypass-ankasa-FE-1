@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Form, Button, InputGroup, Alert } from "react-bootstrap";
+import { Form, Button, InputGroup, Alert } from "react-bootstrap";
 import { AiOutlineEye } from "react-icons/ai";
 import { FaAngleLeft } from "react-icons/fa";
-import Facebook from "../../assets/facebook.svg";
-import Google from "../../assets/google.svg";
-import Fingerprint from "../../assets/fingerprint.svg";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -16,16 +13,16 @@ import Blue from "../../assets/illustration_blue.svg";
 // custom components
 import loginStyle from "../../styles/login.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { login, clearError } from "../../redux/features/authSlice";
+import { clearError, loginAdmin } from "../../redux/features/authSlice";
 
 const Login = () => {
 	const router = useRouter();
 	const dispatch = useDispatch();
-	const authState = useSelector((state) => state.auth);
-	const selector = useSelector((state) => state.loggedInUser);
-	const { user } = selector;
-	const { token, isLoading, error } = authState;
-	console.log(user?.role);
+
+	const { auth, loggedInUser } = useSelector((state) => state);
+
+	const { token, isLoading, error } = auth;
+	const { user } = loggedInUser;
 
 	useEffect(() => {
 		if (token && user?.role === "admin") {
@@ -47,7 +44,7 @@ const Login = () => {
 		password: Yup.string()
 			.min(passwordLength.min, `Password length must be ${passwordLength.min} or more characters`)
 			.max(passwordLength.max, `Password shold not be more than ${passwordLength.max} characters`)
-			.required("Password shold not be empty"),
+			.required("Password should not be empty"),
 	});
 
 	const formik = useFormik({
@@ -58,7 +55,7 @@ const Login = () => {
 		validationSchema: LoginSchema,
 		onSubmit: (values) => {
 			dispatch(clearError());
-			dispatch(login(values));
+			dispatch(loginAdmin(values));
 		},
 	});
 	const eye = <AiOutlineEye size={25} />;

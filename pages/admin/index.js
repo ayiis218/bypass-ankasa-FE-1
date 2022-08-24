@@ -3,28 +3,34 @@ import axios from "axios";
 
 import Swal from "sweetalert2";
 
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import moment from "moment";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/features/authSlice";
+
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
 function Admin() {
+	const dispatch = useDispatch();
 	const router = useRouter();
 	const [dataBook, setDataBook] = useState({});
+	const [sort, setSort] = useState(false);
 
-	// const selector = useSelector((state) => state.loggedInUser);
-	// const { user } = selector;
-
+	const { auth } = useSelector((state) => state);
 	useEffect(() => {
+		if (!auth.token & (auth.isImportant === false)) {
+			router.replace("/admin/login");
+		}
+	});
+
+	const getAllData = () => {
 		axios
 			.get(`https://bypass-ankasa-backend.herokuapp.com/booking/detail`)
 			.then((res) => {
@@ -33,7 +39,28 @@ function Admin() {
 			.catch((err) => {
 				console.log(err);
 			});
+	};
+
+	useEffect(() => {
+		getAllData();
 	}, []);
+
+	const handleSort = () => {
+		if (sort) {
+			setSort(false);
+			getAllData();
+		} else {
+			setSort(true);
+			axios
+				.get(`https://bypass-ankasa-backend.herokuapp.com/booking/sorted`)
+				.then((res) => {
+					setDataBook(res?.data?.data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+	};
 
 	const handleAccept = (event, booking_id) => {
 		event.preventDefault();
@@ -88,6 +115,10 @@ function Admin() {
 		});
 	};
 
+	const handleLogout = () => {
+		dispatch(logout());
+	};
+
 	return (
 		<>
 			{[false].map((expand) => (
@@ -104,7 +135,7 @@ function Admin() {
 									<Nav.Link href="admin">Approval Payment</Nav.Link>
 									{/* <Nav.Link href="admin/flight">Flights</Nav.Link> */}
 									<Nav.Link href="admin/tickets">Tickets</Nav.Link>
-									<Nav.Link href="/profile">Profile</Nav.Link>
+									<Nav.Link onClick={handleLogout}>Logout</Nav.Link>
 								</Nav>
 							</Offcanvas.Body>
 						</Navbar.Offcanvas>
@@ -121,37 +152,46 @@ function Admin() {
 								<th scope="col">Origin</th>
 								<th scope="col">Destination</th>
 								<th scope="col">Date</th>
-								<th scope="col">Status</th>
+								<th scope="col" onClick={handleSort} style={{ cursor: "pointer" }}>
+									Status{" "}
+									{sort ? (
+										<>
+											<IoIosArrowDown />
+										</>
+									) : (
+										<>
+											<IoIosArrowUp />
+										</>
+									)}
+								</th>
 								<th scope="col">Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							{dataBook?.length ? (
+							{dataBook?.length && auth?.isImportant === true ? (
 								dataBook?.map((item, index) => (
-									<>
-										<tr>
-											<th scope="row">{index + 1}</th>
-											<td>{item?.full_name}</td>
-											<td>{item?.origin}</td>
-											<td>{item?.destination}</td>
-											<td>{moment(item?.departure).format("YYYY-MM-DD")}</td>
-											<td>{item?.ticket_status}</td>
-											<td>
-												<button
-													type="button"
-													className="btn btn-primary btn-sm"
-													style={{ marginRight: "8px" }}
-													onClick={(e) => handleAccept(e, item?.booking_id)}
-													disabled={item?.ticket_status === "success" ? true : false}
-												>
-													Approve
-												</button>
-												<button type="button" className="btn btn-danger btn-sm" onClick={(e) => handleCancel(e, item?.booking_id)}>
-													Cancel
-												</button>
-											</td>
-										</tr>
-									</>
+									<tr key={item?.booking_id}>
+										<th scope="row">{index + 1}</th>
+										<td>{item?.full_name}</td>
+										<td>{item?.origin}</td>
+										<td>{item?.destination}</td>
+										<td>{moment(item?.departure).format("YYYY-MM-DD")}</td>
+										<td>{item?.ticket_status}</td>
+										<td>
+											<button
+												type="button"
+												className="btn btn-primary btn-sm"
+												style={{ marginRight: "8px" }}
+												onClick={(e) => handleAccept(e, item?.booking_id)}
+												disabled={item?.ticket_status === "success" ? true : false}
+											>
+												Approve
+											</button>
+											<button type="button" className="btn btn-danger btn-sm" onClick={(e) => handleCancel(e, item?.booking_id)}>
+												Cancel
+											</button>
+										</td>
+									</tr>
 								))
 							) : (
 								<>
