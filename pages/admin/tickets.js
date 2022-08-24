@@ -14,6 +14,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import moment from "moment";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
+import NavbarAdmin from "../../components/organisms/NavbarAdmin";
 
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
@@ -90,28 +91,7 @@ function Admin() {
 
 	return (
 		<>
-			{[false].map((expand) => (
-				<Navbar key={expand} bg="light" expand={expand} className="mb-3">
-					<Container fluid>
-						<Navbar.Brand href="#">Welcome Admin</Navbar.Brand>
-						<Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-						<Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} placement="end">
-							<Offcanvas.Header closeButton>
-								<Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>Menu</Offcanvas.Title>
-							</Offcanvas.Header>
-							<Offcanvas.Body>
-								<Nav className="justify-content-end flex-grow-1 pe-3">
-									<Nav.Link href="/admin">Approval Payment</Nav.Link>
-									{/* <Nav.Link href="admin/flight">Flights</Nav.Link> */}
-									<Nav.Link href="/admin/tickets">Tickets</Nav.Link>
-									<Nav.Link href="/profile">Profile</Nav.Link>
-								</Nav>
-							</Offcanvas.Body>
-						</Navbar.Offcanvas>
-					</Container>
-				</Navbar>
-			))}
-
+			<NavbarAdmin />
 			<div className="container">
 				<div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}>
 					<Button variant="primary" onClick={handleShow}>
