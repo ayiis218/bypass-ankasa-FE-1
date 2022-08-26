@@ -272,7 +272,7 @@ Don't forget to give the project a star! Thanks again!
 
 :rocket: [`Web Service`](https://bypass-ankasa-backend.herokuapp.com)
 
-:rocket: [`Demo Skyloca`](https://bypass-ankasa-fe.vercel.app/)
+:rocket: [`Demo Skyloca`](https://skyloca.vercel.app/)
 
 ## Our Team
 
