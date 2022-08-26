@@ -18,7 +18,7 @@ const Footer = () => {
   console.log("auth token", auth);
   console.log("user data logged", user);
 
-  const handleIsLogin = () => {
+  const handleAuthBooking = () => {
     if (auth === null) {
       Swal.fire({
         icon: "info",
@@ -34,6 +34,22 @@ const Footer = () => {
     }
   };
 
+  const handleAuthProfile = () => {
+    if (auth === null) {
+      Swal.fire({
+        icon: "info",
+        showCancelButton: true,
+        cancelButtonText: "later",
+        cancelButtonColor: "#D3D4D5",
+        confirmButtonText: "Login now",
+        confirmButtonColor: "#2495FF",
+        text: "You have to login first",
+      }).then((result) => (result.isConfirmed ? router.push("/login") : null));
+    } else {
+      router.push(`/profile`);
+    }
+  };
+
   return (
     <div
       className={`row justify-content-center align-teims-center ${style.footer}`}
@@ -42,7 +58,7 @@ const Footer = () => {
         <TbCalendarTime
           size={27}
           color={router.pathname == "/my-booking" ? "#2495FF" : "#979797"}
-          onClick={handleIsLogin}
+          onClick={handleAuthBooking}
         />
         <br />
         <small
@@ -61,14 +77,11 @@ const Footer = () => {
         </Link>
       </div>
       <div className="col-4 text-center">
-        <Link href="/profile" passHref>
-          <a>
-            <CgProfile
-              size={28}
-              color={router.pathname == "/profile" ? "#2495FF" : "#979797"}
-            />
-          </a>
-        </Link>
+        <CgProfile
+          size={28}
+          color={router.pathname == "/profile" ? "#2495FF" : "#979797"}
+          onClick={handleAuthProfile}
+        />
         <br />
         <small
           style={{
