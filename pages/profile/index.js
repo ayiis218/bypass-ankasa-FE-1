@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/features/authSlice";
 import { useRouter } from "next/router";
 import { Button } from "react-bootstrap";
-import Link from 'next/link'
+import Link from "next/link";
 
 const Profile = () => {
 	const router = useRouter();
@@ -20,8 +20,8 @@ const Profile = () => {
 	const { user } = loggedInUserState;
 
 	const handleLogout = () => {
-		dispatch(logout());
 		router.replace("login");
+		dispatch(logout());
 	};
 
 	return (
