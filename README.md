@@ -42,7 +42,7 @@ This application was developed using a framework/library
 
 ### Demo
 
-Here is a working live demo: https://bypass-ankasa-fe.vercel.app/
+Here is a working live demo: https://skyloca.vercel.app/
 
 <!-- GETTING STARTED -->
 
