@@ -36,11 +36,36 @@
    line-height: 14px;
 }
 
+.cardIsRead {
+   width: 340px;
+   margin-left: 35px;
+   margin-top: 15px;
+   padding: 10px;
+   background-color: var(--color-1);
+   box-shadow: 0 0 0 1px var(--color-6);
+   border-radius: 13px;
+}
+.cardIsRead h6 {
+   font-weight: bold;
+   color: var(--color-5);
+}
+.cardIsRead p {
+   font-family: 'Lato';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 14px;
+}
+
 @media screen and (min-width: 400px) {
    .section {
       width: 405px;
    }
    .card {
+      margin-top: 20px;
+      width: 330px;
+   }
+   .cardIsRead {
       margin-top: 20px;
       width: 330px;
    }
