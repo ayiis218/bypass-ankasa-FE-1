@@ -1,7 +1,6 @@
-<h1 align="center">Skyloca Web App</h1>
+# Skyloca Application
 
-<br/>
-
+## Team Project
 <!-- PROJECT LOGO -->
 
 <div align="center">
@@ -44,44 +43,19 @@ This application was developed using a framework/library
 
 Here is a working live demo: https://skyloca.vercel.app/
 
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-### Prerequisites
-
-- npm
-
-```sh
-
-npm install npm@latest -g
-
-```
+### Requirements
+* [Node.js](https://nodejs.org/en/)
+* [Database](./blanja.sql)
 
 ### Installation
-
-1. Get a free API Key at [https://github.com/ilhamyusuf27/bypass-ankasa](https://github.com/ilhamyusuf27/bypass-ankasa.git)
-
-2. Clone the repo
-
-```sh
-
-https://github.com/rezcode/bypass-ankasa-FE.git
+- Clone my repositories
+```
+git clone https://github.com/ayiis218/bypass-ankasa-FE-1.git
+```
+- Install Module
 
 ```
-
-3. Install NPM packages
-
-```sh
-
 npm install
-
-```
-
-4. Enter your API in `.env.local.example`
-
-```js
-NEXT_PUBLIC_API_URL = "ENTER YOUR API";
 ```
 
 ## Screenshoots
@@ -91,157 +65,47 @@ NEXT_PUBLIC_API_URL = "ENTER YOUR API";
 <table>
 
 <tr>
-
-<h4 style="margin-buttom:8px">Register Page</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/register_vxfncz.png" alt="Register Page" width=250>
-
-</tr>
-
-<tr>
-
-<h4 style="margin-buttom:8px">Login Page</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/login_cssmzd.png" alt="Login Page" width=250/>
-
-</tr>
-
-<tr>
-
-<h4 style="margin-buttom:8px">Home Page</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502094/screenshots/home_q2vj8c.png" alt="Home Page" width=250/>
-
-</tr>
-
-<tr>
-
-<h4 style="margin-buttom:8px">Search Flight</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502094/screenshots/search-flight_oqrtjd.png" alt="Search flight page" width=250/>
-
-</tr>
-
-<tr>
-
-<h4 style="margin-buttom:8px">Flight Result</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/flight-result_pgidro.png" alt="Flight Result" width=250/>
-
-</tr>
-
-<tr>
-
-<h4 style="margin-buttom:8px">Flight Detail</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/flight-detail_owiwlr.png" alt="Flight Detail" width=250/>
-
-</tr>
-
-<tr>
-
-<h4 style="margin-buttom:8px">Booking List</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/my-booking_ndo5bd.png" alt="Login Pagee" width=250/>
-
-</tr>
-
-<tr>
-
-<h4 style="margin-buttom:8px">Booking Detail</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/booking-detail_aid8pt.png" alt="Booking Detail" width=250/>
-
+<td><h4 style="margin-buttom:8px">Register Page</h4></td>
+<td><h4 style="margin-buttom:8px">Login Page</h4></td>
+<td><h4 style="margin-buttom:8px">Home Page</h4></td>
+<td><h4 style="margin-buttom:8px">Search Flight</h4></td>
 </tr>
 <tr>
-
-<h4 style="margin-buttom:8px">Profile</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/profile_bf4fhw.png" alt="Profile User" width=250/>
-
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/register_vxfncz.png" alt="Register Page" width=250></td>
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/login_cssmzd.png" alt="Login Page" width=250/></td>
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502094/screenshots/home_q2vj8c.png" alt="Home Page" width=250/></td>
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502094/screenshots/search-flight_oqrtjd.png" alt="Search flight page" width=250/></td>
 </tr>
 <tr>
-
-<h4 style="margin-buttom:8px">Edit Profile</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/edit-profile_ui1x1j.png" alt="Edit Profile" width=250/>
-
+<td><h4 style="margin-buttom:8px">Flight Result</h4></td>
+<td><h4 style="margin-buttom:8px">Flight Detail</h4></td>
+<td><h4 style="margin-buttom:8px">Booking List</h4></td>
+<td><h4 style="margin-buttom:8px">Booking Detail</h4></td>
 </tr>
 <tr>
-
-<h4 style="margin-buttom:8px">Admin Menu</h4>
-
-</tr>
-
-<tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/Admin-menu_b931xl.png" alt="Admin Page" width=350/>
-
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/flight-result_pgidro.png" alt="Flight Result" width=250/></td>
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/flight-detail_owiwlr.png" alt="Flight Detail" width=250/></td>
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/my-booking_ndo5bd.png" alt="Login Pagee" width=250/></td>
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/booking-detail_aid8pt.png" alt="Booking Detail" width=250/></td>
 </tr>
 <tr>
-
-<h4 style="margin-buttom:8px">Admin Approval Ticket</h4>
-
+<td><h4 style="margin-buttom:8px">Profile</h4></td>
+<td><h4 style="margin-buttom:8px">Flight Detail</h4></td>
+<td colspan=2><h4 style="margin-buttom:8px">Admin Menu</h4></td>
 </tr>
-
 <tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/admin-approval-ticket_ubjn6t.png" alt="Admin Approval" width=450/>
-
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/profile_bf4fhw.png" alt="Profile User" width=250/></td>
+<td><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/edit-profile_ui1x1j.png" alt="Edit Profile" width=250/></td>
+<td colspan=2><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/Admin-menu_b931xl.png" alt="Admin Page" width=350/></td>
 </tr>
-
 <tr>
-
-<h4 style="margin-buttom:8px">Admin Create Ticket</h4>
-
+<td colspan=2><h4 style="margin-buttom:8px">Admin Approval Ticket</h4></td>
+<td colspan=2><h4 style="margin-buttom:8px">Admin Create Ticket</h4></td>
 </tr>
-
 <tr>
-
-<image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/admin-create-ticket_ua3hfm.png" alt="Admin Create Ticket" width=450/>
-
+<td colspan=2><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502092/screenshots/admin-approval-ticket_ubjn6t.png" alt="Admin Approval" width=450/></td>
+<td colspan=2><image src="https://res.cloudinary.com/dll4afml9/image/upload/v1661502093/screenshots/admin-create-ticket_ua3hfm.png" alt="Admin Create Ticket" width=450/></td>
 </tr>
-
 </table>
 
 <!-- CONTRIBUTING -->
@@ -272,7 +136,7 @@ Don't forget to give the project a star! Thanks again!
 
 :rocket: [`Web Service`](https://bypass-ankasa-backend.herokuapp.com)
 
-:rocket: [`Demo Skyloca`](https://skyloca.vercel.app/)
+:rocket: [`Demo Skyloca`](https://bypass-ankasa-fe.vercel.app/)
 
 ## Our Team
 
@@ -358,8 +222,11 @@ Don't forget to give the project a star! Thanks again!
 
 </center>
 
-<!-- LICENSE -->
+## Contact
+
+email : ayiis.218@gmail.com
+
+github Link: https://github.com/ayiis218
 
 ## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the [MIT](/LICENSE) License.
