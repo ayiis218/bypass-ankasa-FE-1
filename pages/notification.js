@@ -7,14 +7,16 @@ import { useSelector } from "react-redux";
 
 // Firebase
 import { database } from "../firebase";
-import { ref, onValue, set } from "firebase/database";
+import { ref, onValue, remove } from "firebase/database";
 
 function Notif() {
 	const { auth, loggedInUser } = useSelector((state) => state);
 	const { user } = loggedInUser;
-	console.log(new Date().getTime());
 	const [notification, setNotification] = React.useState({});
 	const [keys, setKeys] = React.useState([]);
+	const [isLoading, setIsLoading] = React.useState(false);
+	const [msg, setMessage] = React.useState("");
+	const [open, setOpen] = React.useState(false);
 
 	React.useEffect(() => {
 		if (!auth) {
@@ -30,10 +32,35 @@ function Notif() {
 
 			if (data && typeof data === "object") {
 				setNotification(data);
-				setKeys(Object.keys(data).reverse().slice(0, 5));
+				setKeys(Object.keys(data).reverse().slice(0, 10));
 			}
 		});
 	}, [user?.user_id]);
+
+	const handleClear = () => {
+		setIsLoading(true);
+		const db = ref(database, `notification/${user?.user_id}/`);
+		return remove(db)
+			.then(() => {
+				setIsLoading(false);
+				setMessage("Seluruh notifikasi berhasil di hapus");
+				setKeys([]);
+				setOpen(true);
+			})
+			.catch((err) => {
+				setIsLoading(false);
+				setMessage(err.message);
+				setOpen(true);
+			});
+	};
+
+	const handleClose = (event, reason) => {
+		if (reason === "clickaway") {
+			return;
+		}
+
+		setOpen(false);
+	};
 
 	return (
 		<>
@@ -43,7 +70,7 @@ function Notif() {
 				<link rel="icon" href="/vector.png" />
 			</Head>
 			<div className={`d-flex justify-content-center`}>
-				<FormNotif data={{ notification, keys, user: user?.user_id }} />
+				<FormNotif data={{ notification, keys, user: user?.user_id, handleClear, isLoading, msg, open, handleClose }} />
 			</div>
 		</>
 	);

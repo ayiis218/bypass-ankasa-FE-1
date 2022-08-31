@@ -57,6 +57,19 @@
    line-height: 14px;
 }
 
+.empty, .loading {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 50vh;
+}
+
+.empty p {
+   color: var(--color-6);
+}
+
+
 @media screen and (min-width: 400px) {
    .section {
       width: 405px;

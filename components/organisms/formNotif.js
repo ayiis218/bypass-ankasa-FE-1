@@ -6,13 +6,17 @@ import style from "./style/notif.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import loading from "../../assets/loading.gif";
+
 import moment from "moment";
-import { ref, update } from "firebase/database";
+import { ref, update, remove } from "firebase/database";
 import { database } from "../../firebase";
+
+import { Snackbar, Alert } from "@mui/material";
 
 const FormNotif = (props) => {
 	const router = useRouter();
-	const { notification, keys, user } = props?.data;
+	const { notification, user, keys, handleClear, isLoading, msg, open, handleClose } = props?.data;
 
 	const title = (ticket_status) => {
 		if (ticket_status === "waiting") {
@@ -66,45 +70,63 @@ const FormNotif = (props) => {
 						</Link>
 					</div>
 					<div className="col-8 col-lg-8 m-3 mt-3 d-flex justify-content-end">
-						<p className={style.label}>clear</p>
+						<p className={style.label} style={{ cursor: "pointer" }} onClick={handleClear}>
+							clear
+						</p>
 					</div>
 					<h3>Notifications</h3>
-					{keys?.map((item) => {
-						let current = notification[item];
-						if (current?.isRead) {
-							return (
-								<div
-									key={item}
-									className={style.cardIsRead}
-									onClick={() => {
-										clickNotif(item, current);
-										router.push(`/my-booking/detail/${current?.booking_id}`);
-									}}
-								>
-									{title(current?.ticket_status)}
-									<p className="text-secondary">{current?.message}</p>
-									<p className="text-secondary">{getTimeMessage(current?.createAt)}</p>
-								</div>
-							);
-						} else {
-							return (
-								<div
-									key={item}
-									className={style.card}
-									onClick={() => {
-										clickNotif(item, current);
-										router.push(`/my-booking/detail/${current?.booking_id}`);
-									}}
-								>
-									{title(current?.ticket_status)}
-									<p className="text-secondary">{current?.message}</p>
-									<p className="text-secondary">{getTimeMessage(current?.createAt)}</p>
-								</div>
-							);
-						}
-					})}
+					{isLoading ? (
+						<div className={style.loading}>
+							<Image src={loading} width={150} height={90} alt="" />
+						</div>
+					) : keys.length ? (
+						keys?.map((item) => {
+							let current = notification[item];
+							if (current?.isRead) {
+								return (
+									<div
+										key={item}
+										className={style.cardIsRead}
+										onClick={() => {
+											clickNotif(item, current);
+											router.push(`/my-booking/detail/${current?.booking_id}`);
+										}}
+									>
+										{title(current?.ticket_status)}
+										<p className="text-secondary">{current?.message}</p>
+										<p className="text-secondary">{getTimeMessage(current?.createAt)}</p>
+									</div>
+								);
+							} else {
+								return (
+									<div
+										key={item}
+										className={style.card}
+										onClick={() => {
+											clickNotif(item, current);
+											router.push(`/my-booking/detail/${current?.booking_id}`);
+										}}
+									>
+										{title(current?.ticket_status)}
+										<p className="text-secondary">{current?.message}</p>
+										<p className="text-secondary">{getTimeMessage(current?.createAt)}</p>
+									</div>
+								);
+							}
+						})
+					) : (
+						<div className={style.empty}>
+							<Image src="/images/vector.png" width={100} height={70} alt="" />
+							<p className="mt-4">No notifications yet</p>
+						</div>
+					)}
 				</div>
 			</div>
+			<Snackbar open={open} autoHideDuration={4000} onClose={handleClose} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
+				<Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+					{msg}
+				</Alert>
+			</Snackbar>
 		</div>
 	);
 };
