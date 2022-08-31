@@ -13,6 +13,9 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
+import { database } from "../../firebase";
+import { ref, set } from "firebase/database";
+
 function Admin() {
 	const router = useRouter();
 	const [dataBook, setDataBook] = useState({});
@@ -36,6 +39,28 @@ function Admin() {
 			});
 	};
 
+	const notificationAcc = (data) => {
+		const starCountRef = ref(database, `notification/${data?.user_id}/${new Date().getTime()}`);
+		set(starCountRef, {
+			booking_id: data?.booking_id,
+			createAt: new Date().getTime(),
+			isRead: false,
+			message: `Terima kasih sudah melakukan pembayaran, Semoga hari mu menyenangkan!`,
+			ticket_status: "success",
+		});
+	};
+
+	const notificationDec = (data) => {
+		const starCountRef = ref(database, `notification/${data?.user_id}/${new Date().getTime()}`);
+		set(starCountRef, {
+			booking_id: data?.booking_id,
+			createAt: new Date().getTime(),
+			isRead: false,
+			message: `Tiket dengan tujuan ${data?.origin} - ${data?.destination} berhasil di batalkan!`,
+			ticket_status: "failed",
+		});
+	};
+
 	useEffect(() => {
 		getAllData();
 	}, []);
@@ -57,7 +82,7 @@ function Admin() {
 		}
 	};
 
-	const handleAccept = (event, booking_id) => {
+	const handleAccept = (event, item) => {
 		event.preventDefault();
 
 		Swal.fire({
@@ -69,10 +94,11 @@ function Admin() {
 			if (result.isConfirmed) {
 				Swal.fire("Saved!", "", "success").then(() => {
 					axios
-						.patch(`https://bypass-ankasa-backend.herokuapp.com/booking/accept/${booking_id}`, {
+						.patch(`https://bypass-ankasa-backend.herokuapp.com/booking/accept/${item?.booking_id}`, {
 							ticket_status: "success",
 						})
 						.then((res) => {
+							notificationAcc(item);
 							setDataBook(res?.data?.result);
 						})
 						.catch((err) => {
@@ -83,7 +109,7 @@ function Admin() {
 		});
 	};
 
-	const handleCancel = (event, booking_id) => {
+	const handleCancel = (event, item) => {
 		event.preventDefault();
 
 		Swal.fire({
@@ -95,11 +121,11 @@ function Admin() {
 			if (result.isConfirmed) {
 				Swal.fire("Saved!", "", "success").then(() => {
 					axios
-						.patch(`https://bypass-ankasa-backend.herokuapp.com/booking/accept/${booking_id}`, {
+						.patch(`https://bypass-ankasa-backend.herokuapp.com/booking/accept/${item?.booking_id}`, {
 							ticket_status: "failed",
 						})
 						.then((res) => {
-							// console.log(res);
+							notificationDec(item);
 							setDataBook(res?.data?.result);
 						})
 						.catch((err) => {
@@ -153,12 +179,12 @@ function Admin() {
 												type="button"
 												className="btn btn-primary btn-sm"
 												style={{ marginRight: "8px" }}
-												onClick={(e) => handleAccept(e, item?.booking_id)}
+												onClick={(e) => handleAccept(e, item)}
 												disabled={item?.ticket_status === "success" ? true : false}
 											>
 												Approve
 											</button>
-											<button type="button" className="btn btn-danger btn-sm" onClick={(e) => handleCancel(e, item?.booking_id)}>
+											<button type="button" className="btn btn-danger btn-sm" onClick={(e) => handleCancel(e, item)}>
 												Cancel
 											</button>
 										</td>

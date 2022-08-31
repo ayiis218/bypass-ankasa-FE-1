@@ -24,6 +24,32 @@
   margin-right: 20px;
 }
 
+.notif{
+  position: relative;
+
+}
+
+.notifBadge{
+  position: absolute;
+  background-color: red;
+  width: 13px;
+  height: 13px;
+border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 10px;
+  color: white;
+  border: 1px solid white;
+}
+/* .notifBadge span {
+  margin: 0;
+  width: 0;
+  padding: 0;
+  display: block;
+} */
+
 /* Header End */
 
 /* Trending Destinations */
